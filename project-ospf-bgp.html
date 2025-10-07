@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lab OSPF/BGP — Cécile Trincavelli</title>
+<style>
+  body{margin:0; color:#e8ecff; font-family:ui-sans-serif,system-ui; line-height:1.6;
+    background: radial-gradient(1200px 800px at 50% -30%, #16204b 0%, #070816 55%) fixed;}
+  .wrap{max-width:900px; margin:0 auto; padding:42px 20px 80px}
+  a{color:#99e1ff} header{border-bottom:1px solid rgba(255,255,255,.1)}
+  .back{display:inline-block; margin:18px 0; text-decoration:none; padding:.5rem .8rem; border-radius:10px; background:rgba(153,225,255,.08); border:1px solid rgba(153,225,255,.25)}
+  h1{margin-top:0}
+  pre{background:rgba(255,255,255,.06); padding:14px; border-radius:12px; overflow:auto}
+  .card{background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:14px; padding:16px; margin:14px 0}
+</style>
+</head>
+<body>
+  <header><div class="wrap"><a class="back" href="index.html">← Retour au portfolio</a></div></header>
+  <div class="wrap">
+    <h1>Lab OSPF/BGP multi-routers</h1>
+    <p>
+      Maquette GNS3 (FRRouting) avec 4 routeurs, 2 aires OSPF, un peering eBGP et filtrage de préfixes.
+      Objectif : comprendre redistribution contrôlée et route-maps.
+    </p>
+
+    <div class="card">
+      <h2>Architecture</h2>
+      <ul>
+        <li>R1/R2 en OSPF Area 0, R3 en Area 1. R4 = AS externe (eBGP).</li>
+        <li>Redistribution OSPF↔BGP via route-maps (prefix-list).</li>
+        <li>Capture Wireshark sur liens R2–R4 et R1–R2.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Commandes FRR (extraits)</h2>
+      <pre><code>conf t
+router ospf
+  router-id 1.1.1.1
+  network 10.0.0.0/24 area 0
+!
+router bgp 65001
+  neighbor 192.0.2.2 remote-as 65002
+  network 10.0.0.0/24
+!
+ip prefix-list EXPORT permit 10.0.0.0/24
+route-map OSPF-TO-BGP permit 10
+  match ip address prefix-list EXPORT
+exit
+      </code></pre>
+    </div>
+
+    <div class="card">
+      <h2>Résultats</h2>
+      <ul>
+        <li>Routes OSPF exportées sélectivement vers BGP.</li>
+        <li>Convergence < 2s avec timers par défaut (topologie réduite).</li>
+        <li>Captures confirment LSA Type 1/5 et annonces BGP filtrées.</li>
+      </ul>
+    </div>
+
+    <p>Docs et schémas disponibles sur demande. Contact : <a href="mailto:cecile.trincavelli@example.com">cecile.trincavelli@example.com</a></p>
+  </div>
+</body>
+</html>

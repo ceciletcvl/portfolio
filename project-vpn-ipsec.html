@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>VPN site-à-site (IPsec) — Cécile Trincavelli</title>
+<style>
+  body{margin:0; color:#e8ecff; font-family:ui-sans-serif,system-ui; line-height:1.6;
+    background: radial-gradient(1200px 800px at 50% -30%, #16204b 0%, #070816 55%) fixed;}
+  .wrap{max-width:900px; margin:0 auto; padding:42px 20px 80px}
+  a{color:#99e1ff} header{border-bottom:1px solid rgba(255,255,255,.1)}
+  .back{display:inline-block; margin:18px 0; text-decoration:none; padding:.5rem .8rem; border-radius:10px; background:rgba(153,225,255,.08); border:1px solid rgba(153,225,255,.25)}
+  h1{margin-top:0}
+  pre{background:rgba(255,255,255,.06); padding:14px; border-radius:12px; overflow:auto}
+  .card{background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:14px; padding:16px; margin:14px 0}
+</style>
+</head>
+<body>
+  <header><div class="wrap"><a class="back" href="index.html">← Retour au portfolio</a></div></header>
+  <div class="wrap">
+    <h1>VPN site-à-site (IPsec)</h1>
+    <p>Deux sites reliés via IPsec, politique de chiffrement, tests de perf, MTU et documentation d’exploitation.</p>
+
+    <div class="card">
+      <h2>Politique (exemple)</h2>
+      <pre><code>crypto isakmp policy 10
+ encr aes 256
+ hash sha256
+ authentication pre-share
+ group 14
+ lifetime 86400
+!
+crypto ipsec transform-set TSET esp-aes 256 esp-sha-hmac
+      </code></pre>
+    </div>
+
+    <div class="card">
+      <h2>Tests</h2>
+      <ul>
+        <li>iperf3 : débit stable ~ X Mb/s (maquette).</li>
+        <li>MTU ajustée pour éviter la fragmentation.</li>
+      </ul>
+    </div>
+
+    <p>Contact : <a href="mailto:cecile.trincavelli@etu.unice.fr">cecile.trincavelli@etu.unice.fr</a></p>
+  </div>
+</body>
+</html>
