@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cécile Trincavelli — Portfolio BUT R&T</title>
+  <meta name="description" content="Portfolio de Cécile Trincavelli, étudiante en BUT Réseaux & Télécommunications." />
+  <style>
+    :root{
+      --bg:#070816; --bg-soft:#0c1024; --card:#111632; --card-2:#0e1330;
+      --text:#e8ecff; --muted:#aab3e6; --accent:#99e1ff; --accent-2:#ff6aa7;
+      --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; color:var(--text);
+      font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background: radial-gradient(1200px 800px at 50% -30%, #16204b 0%, var(--bg) 55%) fixed;
+      overflow-x:hidden; line-height:1.6;
+    }
+    #stars-canvas{position:fixed; inset:0; z-index:-2}
+    .hibiscus-layer{position:fixed; inset:0; pointer-events:none; z-index:-1; overflow:hidden}
+
+    header{position:sticky; top:0; z-index:20; backdrop-filter:blur(8px);
+      background:linear-gradient(to bottom, rgba(7,8,22,.85), rgba(7,8,22,.35));
+      border-bottom:1px solid rgba(255,255,255,.07);
+    }
+    .nav{max-width:1100px; margin:0 auto; display:flex; align-items:center; gap:16px; padding:14px 20px;}
+    .brand{font-weight:800; letter-spacing:.4px; font-size:1.05rem; display:flex; align-items:center; gap:.6rem;}
+    .brand .dot{width:10px; height:10px; border-radius:999px; background:linear-gradient(135deg, var(--accent), #7fb7ff); box-shadow:0 0 14px var(--accent)}
+    .nav a{color:var(--muted); text-decoration:none; font-weight:600; padding:.45rem .7rem; border-radius:999px;}
+    .nav a:hover,.nav a:focus{color:var(--text); background:rgba(255,255,255,.06); outline:none}
+    .spacer{flex:1}
+    .badge{display:inline-flex; gap:.5rem; align-items:center; padding:.35rem .7rem;
+      background:rgba(153,225,255,.08); color:var(--accent);
+      border:1px solid rgba(153,225,255,.25); border-radius:999px; font-size:.86rem; font-weight:700;
+    }
+
+    .hero{
+      max-width:1100px; margin:0 auto; padding:90px 20px 64px;
+      display:grid; grid-template-columns:.9fr 1.1fr; gap:32px;
+    }
+    .photo-wrap{
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--radius); padding:18px; box-shadow:var(--shadow);
+      display:flex; align-items:center; justify-content:center; min-height:320px;
+    }
+    .photo{
+      width:min(100%, 360px); aspect-ratio:1/1; border-radius:22px; object-fit:cover;
+      box-shadow:0 20px 40px rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.12);
+      background:#0b0f26 center/cover no-repeat;
+    }
+    h1{font-size:clamp(2.2rem, 4.5vw, 3.4rem); line-height:1.1; margin:.75rem 0 1rem; letter-spacing:.2px;}
+    .lead{color:var(--muted); font-size:1.05rem; margin:0 0 1.2rem}
+    .cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:.6rem}
+    .btn{appearance:none; border:none; cursor:pointer; font-weight:800; padding:.9rem 1.1rem; border-radius:12px;
+      text-decoration:none; display:inline-flex; align-items:center; gap:.6rem;
+      background:linear-gradient(135deg, var(--accent), #7fb7ff); color:#071224; box-shadow:0 8px 28px rgba(153,225,255,.25);
+    }
+    .btn.secondary{background:linear-gradient(135deg, #ff86bd, var(--accent-2)); color:#220916; box-shadow:0 8px 28px rgba(255,106,167,.25);}
+
+    section{padding:56px 20px}
+    .wrap{max-width:1100px; margin:0 auto}
+    .section-title{font-size:clamp(1.4rem, 2.8vw, 2rem); margin:0 0 18px; letter-spacing:.3px;}
+    .muted{color:var(--muted)}
+
+    .grid{display:grid; gap:16px; grid-template-columns:repeat(12,1fr)}
+    .card{grid-column:span 12; background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015));
+      border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow);
+      transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .card:hover{transform:translateY(-2px); border-color:rgba(153,225,255,.35); box-shadow:0 14px 40px rgba(153,225,255,.08)}
+    .card h3{margin:.2rem 0 .35rem; font-size:1.1rem}
+    .tagrow{display:flex; flex-wrap:wrap; gap:8px; margin-top:.5rem}
+    .tag{font-size:.84rem; padding:.38rem .6rem; border-radius:999px; border:1px solid rgba(255,255,255,.14); color:var(--text);
+      background:rgba(255,255,255,.06); text-decoration:none; font-weight:700;
+    }
+    .tag:hover{background:rgba(255,255,255,.12)}
+
+    @media (min-width: 820px){ .card.span-6{grid-column:span 6} }
+    @media (max-width: 819px){ .hero{grid-template-columns:1fr} }
+
+    footer{padding:32px 20px 60px; color:var(--muted); text-align:center; border-top:1px solid rgba(255,255,255,.08);
+      background:linear-gradient(to top, rgba(255,255,255,.03), transparent);
+    }
+
+    /* Aligner proprement les boutons/étiquettes en grille */
+.tagrow{
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px 12px;
+  margin-top: .75rem;
+}
+
+.tag{
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  height: 38px;              /* même hauteur pour toutes */
+  border-radius: 999px;
+  padding: 0 .8rem;          /* le texte respire sans casser l’alignement */
+  white-space: nowrap;       /* pas de retour à la ligne dans un bouton */
+}
+
+@media (max-width: 520px){
+  .tagrow{ grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); }
+  .tag{ height: 34px; }
+}
+
+.btn.cv {
+  background: linear-gradient(135deg, #7fb7ff, #3c9eff);
+  color: #071224;
+}
+.btn.cv:hover {
+  background: linear-gradient(135deg, #99cfff, #5da8ff);
+}
+
+  </style>
+</head>
+<body>
+  <canvas id="stars-canvas" aria-hidden="true"></canvas>
+  <div class="hibiscus-layer" aria-hidden="true"></div>
+
+  <header>
+    <nav class="nav" aria-label="Navigation principale">
+      <div class="brand"><span class="dot"></span> Cécile Trincavelli</div>
+      <a href="#apropos">À propos</a>
+      <a href="#competences">Compétences</a>
+      <a href="#experiences">Expériences</a>
+      <a href="#projets">Projets</a>
+      <a href="#contact">Contact</a>
+      <div class="spacer"></div>
+      <span class="badge">BUT R&T — 2ᵉ année</span>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="photo-wrap">
+        <img class="photo" src="photo-cecile.jpg" alt="Portrait de Cécile Trincavelli" />
+      </div>
+      <div>
+        <span class="badge">⭐ Étudiante — Réseaux & Télécom 🌺</span>
+        <h1>Bonjour, je suis <span style="background:linear-gradient(135deg,#b2e6ff,#ff8fc1); -webkit-background-clip:text; background-clip:text; color:transparent;">Cécile Trincavelli</span></h1>
+        <p class="lead">
+          Étudiante en <strong>BUT Réseaux & Télécommunications</strong> à Sophia Antipolis.  
+          J’aime configurer et administrer des réseaux (Cisco), travailler sur Linux/Windows et développer des outils web simples pour faciliter l’exploitation. <!-- Compétences tirées du CV : réseaux, systèmes, dev web. :contentReference[oaicite:1]{index=1} -->
+        </p>
+<div class="cta-row">
+  <a class="btn" href="#projets">Voir mes projets</a>
+  <a class="btn secondary" href="#contact">Me contacter</a>
+<a class="btn cv" href="CV_TRINCAVELLI.pdf" download>📄 Télécharger mon CV</a>
+
+  </a>
+</div>
+    </section>
+
+    <!-- À PROPOS -->
+    <section id="apropos">
+      <div class="wrap">
+        <h2 class="section-title">À propos</h2>
+        <p class="muted">
+          En 2ᵉ année de BUT R&T, je consolide mes bases en VLAN, routage, sécurité de base, administration Linux/Windows, et SQL.
+          Je m’appuie sur une approche structurée (RACI, Gantt) et j’aime le travail en équipe. <!-- Gestion de projet & techno : issus du CV. :contentReference[oaicite:2]{index=2} -->
+        </p>
+        <p class="muted">
+          Langues : 🇬🇧 Anglais (B1+) • 🇪🇸 Espagnol (B1). <!-- Niveaux de langues : du CV. :contentReference[oaicite:3]{index=3} -->
+        </p>
+      </div>
+    </section>
+
+    <!-- COMPÉTENCES -->
+    <section id="competences">
+<!-- Réseaux & Télécom -->
+<div class="tagrow">
+  <a class="tag" href="sae12.html">Adressage & VLAN</a>
+  <a class="tag" href="sae21.html">Conception LAN</a>
+  <a class="tag" href="sae22.html">Mesures & validation</a>
+</div>
+
+<!-- Systèmes & Administration -->
+<div class="tagrow">
+  <a class="tag" href="sae21.html">Services de base</a>
+  <a class="tag" href="sae24.html">Intégration S2</a>
+</div>
+
+<!-- Développement & BDD -->
+<div class="tagrow">
+  <a class="tag" href="sae14.html">Site web</a>
+  <a class="tag" href="sae24.html">Scripts & outils</a>
+</div>
+
+<!-- Gestion de projet -->
+<div class="tagrow">
+  <a class="tag" href="sae11.html">Organisation S1</a>
+  <a class="tag" href="sae24.html">RACI & Gantt</a>
+</div>
+    </section>
+
+    <!-- EXPÉRIENCES -->
+    <section id="experiences">
+      <div class="wrap">
+        <h2 class="section-title">Expériences</h2>
+        <div class="grid">
+          <article class="card span-6">
+            <h3>Animatrice — Mairie d’Antibes</h3>
+            <p class="muted">Encadrement et animation de groupes d’enfants, accompagnement au développement. <!-- Tiré du CV. :contentReference[oaicite:4]{index=4} --></p>
+            <div class="tagrow"><span class="tag">Responsabilité</span><span class="tag">Pédagogie</span><span class="tag">Sécurité</span></div>
+          </article>
+          <article class="card span-6">
+            <h3>Équipière buvette / Agent événementiel</h3>
+            <p class="muted">Service & encaissement, accueil/relations clients, réassort & mise en place lors d’événements sportifs et festivals. <!-- Tiré du CV. :contentReference[oaicite:5]{index=5} --></p>
+            <div class="tagrow"><span class="tag">Relationnel</span><span class="tag">Polyvalence</span><span class="tag">Rigueur</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENGAGEMENTS / INTÉRÊTS -->
+    <section id="engagements">
+      <div class="wrap">
+        <h2 class="section-title">Engagement & centres d’intérêt</h2>
+        <div class="grid">
+          <article class="card span-6">
+            <h3>BAFA & PSC1</h3>
+            <p class="muted">BAFA (approfondissement jeux et grandes animations) + PSC1. <!-- Du CV. :contentReference[oaicite:6]{index=6} --></p>
+          </article>
+          <article class="card span-6">
+            <h3>Trésorière du BDE — IUT Sophia</h3>
+            <p class="muted">Coordination et organisation d’événements étudiants, participation à des projets de grande envergure. <!-- Du CV. :contentReference[oaicite:7]{index=7} --></p>
+          </article>
+          <article class="card span-6">
+            <h3>Sport & dépassement de soi</h3>
+            <p class="muted">Fitness, natation (sport-études au collège). <!-- Du CV. :contentReference[oaicite:8]{index=8} --></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJETS (pages détaillées déjà fournies) -->
+<section id="projets">
+  <div class="wrap">
+    <h2 class="section-title">Projets scolaires — SAÉ</h2>
+    <div class="grid">
+      <a class="card span-6" href="sae11.html">
+        <h3>SAÉ 11 — Projet transversal S1</h3>
+        <p class="muted">Découverte du parcours, organisation et mise en pratique des bases R&T (travail en équipe, méthode, doc).</p>
+      </a>
+      <a class="card span-6" href="sae12.html">
+        <h3>SAÉ 12 — S’initier aux réseaux informatiques</h3>
+        <p class="muted">Adressage, VLAN, routage de base, configuration initiale d’équipements (Packet Tracer/Cisco).</p>
+      </a>
+      <a class="card span-6" href="sae13.html">
+        <h3>SAÉ 13 — Découvrir un dispositif de transmission</h3>
+        <p class="muted">Mesures simples, couche physique, premières caractérisations d’un lien de transmission.</p>
+      </a>
+      <a class="card span-6" href="sae14.html">
+        <h3>SAÉ 14 — Se présenter sur Internet</h3>
+        <p class="muted">Site personnel vitrine (HTML/CSS/JS), identité numérique, accessibilité et bonnes pratiques.</p>
+      </a>
+      <a class="card span-6" href="sae21.html">
+        <h3>SAÉ 21 — Construire un réseau pour petite structure</h3>
+        <p class="muted">Conception d’un LAN complet : VLAN, routage, services de base, documentation et tests.</p>
+      </a>
+      <a class="card span-6" href="sae22.html">
+        <h3>SAÉ 22 — Mesurer et caractériser un signal ou un système</h3>
+        <p class="muted">Chaîne d’acquisition, mesures fréquentielles/temporelles, interprétation et rapport.</p>
+      </a>
+      <a class="card span-6" href="sae24.html">
+        <h3>SAÉ 24 — Projet transversal S2</h3>
+        <p class="muted">Intégration réseau/systèmes/données avec organisation (RACI, Gantt) et livrables finalisés.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="wrap">
+        <h2 class="section-title">Contact</h2>
+        <p class="muted">
+          📍 Antibes (06600) — 📞 07 88 79 93 52 — ✉️
+          <a href="mailto:cecile.trincavelli@etu.unice.fr" style="color:var(--accent)">cecile.trincavelli@etu.unice.fr</a>
+          <!-- Coordonnées reprises du CV. :contentReference[oaicite:9]{index=9} -->
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>© <span id="year"></span> Cécile Trincavelli — Portfolio Étudiante</footer>
+
+  <!-- Hibiscus SVG -->
+  <svg width="0" height="0" style="position:absolute; left:-9999px; top:-9999px" aria-hidden="true">
+    <defs>
+      <linearGradient id="hibigrad" x1="0" x2="1" y1="0" y2="1">
+        <stop offset="0%" stop-color="#ff9bc7"/>
+        <stop offset="100%" stop-color="#ff5fa8"/>
+      </linearGradient>
+      <symbol id="hibiscus" viewBox="0 0 100 100">
+        <g fill="url(#hibigrad)">
+          <path d="M50 10 C70 5, 95 20, 85 40 C75 60, 55 55, 50 50 Z"/>
+          <path d="M90 50 C95 70, 80 95, 60 85 C40 75, 45 55, 50 50 Z"/>
+          <path d="M50 90 C30 95, 5 80, 15 60 C25 40, 45 45, 50 50 Z"/>
+          <path d="M10 50 C5 30, 20 5, 40 15 C60 25, 55 45, 50 50 Z"/>
+        </g>
+        <circle cx="50" cy="50" r="6" fill="#ffe5f1"/>
+        <rect x="48.5" y="30" width="3" height="22" rx="1.5" fill="#ffd4ec"/>
+        <circle cx="50" cy="30" r="3" fill="#fff0f7"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <canvas id="stars-canvas" aria-hidden="true"></canvas>
+  <div class="hibiscus-layer" aria-hidden="true"></div>
+
+  <script>
+    const clamp=(n,min,max)=>Math.max(min,Math.min(max,n));
+
+    // ⭐ Starfield
+    (function starfield(){
+      const c=document.getElementById('stars-canvas');
+      const ctx=c.getContext('2d',{alpha:true});
+      let w,h,stars=[];
+      function resize(){
+        const dpr=Math.max(1,Math.min(2,window.devicePixelRatio||1));
+        w=c.width=Math.floor(innerWidth*dpr);
+        h=c.height=Math.floor(innerHeight*dpr);
+        c.style.width=innerWidth+'px'; c.style.height=innerHeight+'px';
+      }
+      function init(){
+        stars=[];
+        const n=clamp(Math.floor((innerWidth*innerHeight)/12000), 120, 380);
+        for(let i=0;i<n;i++){
+          stars.push({x:Math.random()*w, y:Math.random()*h, r:(Math.random()*1.4+.3), s:Math.random()*0.35+0.05, t:Math.random()*Math.PI*2});
+        }
+      }
+      function draw(){
+        ctx.clearRect(0,0,w,h);
+        for(const s of stars){
+          s.y+=s.s; if(s.y>h){s.y=-10; s.x=Math.random()*w}
+          s.t+=0.03; const tw=0.6+Math.sin(s.t)*0.4;
+          ctx.beginPath(); ctx.arc(s.x,s.y,s.r*tw,0,Math.PI*2);
+          ctx.fillStyle='rgba(200,220,255,.9)'; ctx.fill();
+        }
+        requestAnimationFrame(draw);
+      }
+      resize(); init(); draw();
+      addEventListener('resize', ()=>{resize(); init();}, {passive:true});
+    })();
+
+    // 🌺 Hibiscus
+    (function hibiscus(){
+      const layer=document.querySelector('.hibiscus-layer');
+      const prefersReduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const MAX=prefersReduced?0:clamp(Math.floor(innerWidth/60), 8, 26);
+
+      const style=document.createElement('style');
+      style.textContent=`
+        @keyframes floatDown{0%{transform:translate3d(var(--x,0), -12vh, 0) rotate(var(--rotStart,0deg))}
+          100%{transform:translate3d(calc(var(--x,0) + var(--drift,0px)), 112vh, 0) rotate(var(--rotEnd,360deg))}}
+        .hibi{position:absolute; width:var(--size,16px); height:var(--size,16px); opacity:.85;
+          filter:drop-shadow(0 4px 8px rgba(255,106,167,.25));
+          animation:floatDown linear both; animation-duration:var(--dur,18s); will-change:transform;}
+      `;
+      document.head.appendChild(style);
+
+      function spawnOne(delay=0){
+        const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+        svg.setAttribute('viewBox','0 0 100 100'); svg.classList.add('hibi');
+        svg.style.left=(Math.random()*100)+'vw';
+        svg.style.setProperty('--x',(Math.random()*20-10)+'px');
+        svg.style.setProperty('--drift',(Math.random()*80-40)+'px');
+        svg.style.setProperty('--size',(Math.random()*12+10)+'px');
+        svg.style.setProperty('--dur',(Math.random()*12+14)+'s');
+        svg.style.setProperty('--rotStart',Math.floor(Math.random()*360)+'deg');
+        svg.style.setProperty('--rotEnd',Math.floor(Math.random()*360+360)+'deg');
+        svg.style.animationDelay=(Math.random()*6+delay)+'s';
+        const useEl=document.createElementNS('http://www.w3.org/2000/svg','use');
+        useEl.setAttributeNS('http://www.w3.org/1999/xlink','xlink:href','#hibiscus');
+        svg.appendChild(useEl);
+        svg.addEventListener('animationend', ()=>{ svg.remove(); if(document.visibilityState==='visible') spawnOne(0); });
+        layer.appendChild(svg);
+      }
+      for(let i=0;i<MAX;i++) spawnOne(i*0.35);
+      document.addEventListener('visibilitychange', ()=>{ layer.style.display=(document.visibilityState==='hidden')?'none':'block'; });
+    })();
+
+    // année
+    document.getElementById('year').textContent=new Date().getFullYear();
+
+    // scroll doux si autorisé
+    if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      document.documentElement.style.scrollBehavior='smooth';
+    }
+  </script>
+</body>
+</html>
