@@ -4,77 +4,102 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>SAÉ 12 — S’initier aux réseaux informatiques</title>
+
 <style>
-  body{
-    margin:0;
-    color:#e8ecff;
-    font-family:ui-sans-serif,system-ui;
-    line-height:1.6;
-    background:radial-gradient(1200px 800px at 50% -30%,#16204b 0%,#070816 55%) fixed;
-  }
-  .wrap{
-    max-width:900px;
-    margin:0 auto;
-    padding:42px 20px 80px;
-  }
-  a{
-    color:#99e1ff;
-  }
-  .back{
-    display:inline-block;
-    margin:18px 0;
-    text-decoration:none;
-    padding:.5rem .8rem;
-    border-radius:10px;
-    background:rgba(153,225,255,.08);
-    border:1px solid rgba(153,225,255,.25);
-  }
-  .card{
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.1);
-    border-radius:14px;
-    padding:16px;
-    margin:14px 0;
-  }
-  pre{
-    background:rgba(255,255,255,.06);
-    padding:14px;
-    border-radius:12px;
-    overflow:auto;
-  }
-  ul{
-    padding-left:1.4rem;
-  }
+:root{
+  --bg:#eef2ff;
+  --card:#ffffff;
+  --accent:#4da3ff;
+  --accent-soft:#dbeafe;
+  --text:#1e293b;
+  --muted:#475569;
+}
+
+body{
+  margin:0;
+  font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+}
+
+.wrap{
+  max-width:900px;
+  margin:auto;
+  padding:50px 20px 80px;
+}
+
+a{color:var(--accent); font-weight:600;}
+
+.back{
+  display:inline-block;
+  margin-bottom:30px;
+  text-decoration:none;
+  padding:.6rem 1rem;
+  border-radius:12px;
+  background:var(--accent-soft);
+  border:1px solid var(--accent);
+}
+
+h1{
+  font-size:2.2rem;
+  margin-bottom:20px;
+}
+
+.card{
+  background:var(--card);
+  border-radius:16px;
+  padding:22px;
+  margin:18px 0;
+  box-shadow:0 8px 25px rgba(0,0,0,0.05);
+  border:1px solid #e2e8f0;
+}
+
+h2{margin-top:0;}
+
+ul,ol{padding-left:1.4rem;}
+
 </style>
 </head>
+
 <body>
+
 <header>
   <div class="wrap">
-    <a class="back" href="index.html">← Retour</a>
+    <a class="back" href="index.html">← Retour au portfolio</a>
   </div>
 </header>
 
 <div class="wrap">
+
   <h1>SAÉ 12 : S’initier aux réseaux informatiques</h1>
 
   <div class="card">
-    <h2>Objectifs</h2>
-    <p>Appliquer les connaissances apprises à l’IUT (R101, R102,..) dans un autre environnement réseau : le vôtre !</p>
+    <h2>Objectifs de la SAÉ</h2>
+    <p>
+      Appliquer les connaissances apprises à l’IUT (R101, R102, etc.) dans un autre environnement réseau : le vôtre !
+    </p>
     <p>Vous devrez donc, avec cette SAÉ :</p>
+
     <ol>
       <li>Tester les configurations de votre réseau domestique.</li>
       <li>Identifier les différents constituants de vos accès Web.</li>
       <li>Comprendre leurs interactions entre votre ordinateur et les équipements réseaux et serveurs.</li>
       <li>Analyser les débits possibles en fonction de votre environnement réseau.</li>
-      <li>Évaluer l’énergie consommée.</li>
+      <li>Étudier également l’énergie consommée.</li>
     </ol>
   </div>
 
   <div class="card">
-    <h2>Enoncé</h2>
-    <p><a href="Enonce-SAE12-2024.pdf" target="_blank">Télécharger l’énoncé de la SAÉ 12</a></p>
+    <h2>Enoncé officiel</h2>
+    <p>
+      <a href="Enonce-SAE12-2024.pdf" target="_blank">
+        📄 Télécharger l’énoncé — Enonce-SAE12-2024
+      </a>
+    </p>
   </div>
 
 </div>
+
 </body>
 </html>
