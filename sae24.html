@@ -1,25 +1,124 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SAÉ 24 — Projet transversal S2</title>
-<style>/* style identique */ 
-  body{margin:0;color:#e8ecff;font-family:ui-sans-serif,system-ui;line-height:1.6;background:radial-gradient(1200px 800px at 50% -30%,#16204b 0%,#070816 55%) fixed}
-  .wrap{max-width:900px;margin:0 auto;padding:42px 20px 80px} a{color:#99e1ff}
-  .back{display:inline-block;margin:18px 0;text-decoration:none;padding:.5rem .8rem;border-radius:10px;background:rgba(153,225,255,.08);border:1px solid rgba(153,225,255,.25)}
-  .card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px;margin:14px 0}
-</style></head><body>
-<header><div class="wrap"><a class="back" href="index.html">← Retour</a></div></header>
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SAE 15 / 23 / 24 — Traiter des données</title>
+
+<style>
+:root{
+  --bg:#f0f4ff; --bg-soft:#e0e8ff; --card:#ffffff;
+  --text:#111827; --muted:#555a75; --accent:#4f9eff;
+  --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.1);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+.wrap{
+  max-width:900px;
+  margin:auto;
+  padding:30px 20px 80px;
+}
+.back{
+  display:inline-block;
+  margin:30px 0 10px;
+  text-decoration:none;
+  padding:.55rem .9rem;
+  border-radius:999px;
+  background:rgba(79,158,255,.08);
+  border:1px solid rgba(79,158,255,.25);
+  color:var(--accent);
+  font-weight:600;
+}
+h1{font-size:2.2rem;margin-bottom:20px}
+h2{margin-top:0;font-size:1.3rem}
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:20px;
+  margin:20px 0;
+  box-shadow:var(--shadow);
+}
+.muted{color:var(--muted)}
+ul{padding-left:1.2rem}
+a{color:var(--accent); font-weight:600;}
+</style>
+</head>
+
+<body>
+
 <div class="wrap">
-  <h1>SAÉ 24 — Projet transversal S2</h1>
-  <div class="card"><h2>Objectifs</h2>
-    <ul>
-      <li>Intégrer réseau, systèmes et data dans un mini-projet commun.</li>
-      <li>Organiser l’équipe (RACI, Gantt), gérer versions & livrables.</li>
+  <a class="back" href="index.html">← Retour au portfolio</a>
+
+  <h1>SAE 15 / 23 / 24 — Traiter des données</h1>
+
+  <div class="card">
+    <h2>Objectif global du projet</h2>
+    <p class="muted">
+      Cette SAE a pour but de concevoir un <strong>système intelligent de prise de photos</strong> d’un banc de test,
+      capable de fonctionner de manière autonome ou sur demande.  
+      Le système doit assurer la capture d’images de jour comme de nuit, leur archivage structuré,
+      ainsi que leur consultation via un site web.  
+      Il intègre également la gestion de l’éclairage, des utilisateurs autorisés et du stockage des données,
+      dans une approche à la fois technique, fonctionnelle et responsable.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Fonctionnalités du système</h2>
+    <ul class="muted">
+      <li>Prise de photos automatique avant chaque test ou sur demande</li>
+      <li>Fonctionnement de jour et de nuit</li>
+      <li>Gestion automatique d’un système d’éclairage si nécessaire</li>
+      <li>Archivage structuré des photos</li>
+      <li>Site web permettant de consulter l’historique des images</li>
+      <li>Gestion des utilisateurs autorisés</li>
     </ul>
   </div>
-  <div class="card"><h2>Livrables</h2>
-    <ul><li>Dossier projet complet</li><li>Démo/POC</li><li>Présentation finale</li></ul>
+
+  <div class="card">
+    <h2>SAE 15 — Semestre 1 : Conception</h2>
+    <ul class="muted">
+      <li>Spécification du produit</li>
+      <li>Définition des exigences</li>
+      <li>Architecture logicielle</li>
+      <li>Organigrammes (algorithmes)</li>
+      <li>Maquette du site web</li>
+      <li>Mise en place et suivi du projet Git</li>
+    </ul>
   </div>
-  <div class="card"><h2>Compétences</h2>
-    <p>Gestion de projet, intégration technique, communication pro.</p>
+
+  <div class="card">
+    <h2>SAE 23 — Semestre 2 : Développement intermédiaire</h2>
+    <ul class="muted">
+      <li>Développement d’un site web sécurisé et éco-conçu  
+      (chaque élément est utile et évite toute surconsommation inutile)</li>
+      <li>Mise en place de la base de données</li>
+      <li>Évolution et mise à jour du projet Git</li>
+    </ul>
   </div>
-</div></body></html>
+
+  <div class="card">
+    <h2>SAE 24 — Semestre 2 : Finalisation</h2>
+    <ul class="muted">
+      <li>Application complète opérationnelle et validée</li>
+      <li>Intégration : site web + base de données + programme Python</li>
+      <li>Documentation complète du projet</li>
+      <li>Projet Git finalisé et à jour</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Énoncé</h2>
+    <p>📄 <a href="IUT-2024_2025-SAE_23_24-5(1).pdf" target="_blank">IUT-2024_2025-SAE_23_24-5(1)</a></p>
+  </div>
+
+</div>
+
+</body>
+</html>
