@@ -1,4 +1,4 @@
-'<!doctype html>
+<!doctype html>
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
@@ -7,34 +7,41 @@
   <meta name="description" content="Portfolio de Cécile Trincavelli, étudiante en BUT Réseaux & Télécommunications." />
   <style>
     :root{
-      --bg:#0f172a; --bg-soft:#1e293b; --card:#1e293b; --card-2:#243047;
-      --text:#f1f5ff; --muted:#c7d2fe; --accent:#7dd3fc; --accent-2:#f472b6;
-      --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35);
+      --bg:#e6f0ff;        /* fond clair général */
+      --bg-soft:#f0f5ff;   /* fond des cartes */
+      --card:#ffffff;       /* carte principale */
+      --card-2:#f9faff;    /* carte secondaire */
+      --text:#0f172a;      /* texte principal */
+      --muted:#4b5563;     /* texte secondaire */
+      --accent:#3b82f6;    /* accent bleu */
+      --accent-2:#f472b6;  /* accent rose */
+      --radius:18px;
+      --shadow:0 10px 30px rgba(0,0,0,.15);
     }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0; color:var(--text);
       font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      background: radial-gradient(1000px 700px at 50% -20%, #1e293b 0%, var(--bg) 60%) fixed;
+      background: radial-gradient(1200px 800px at 50% -30%, #dbe9ff 0%, var(--bg) 60%) fixed;
       overflow-x:hidden; line-height:1.6;
     }
     #stars-canvas{position:fixed; inset:0; z-index:-2}
     .hibiscus-layer{position:fixed; inset:0; pointer-events:none; z-index:-1; overflow:hidden}
 
     header{position:sticky; top:0; z-index:20; backdrop-filter:blur(8px);
-      background:linear-gradient(to bottom, rgba(15,23,42,.85), rgba(15,23,42,.35));
-      border-bottom:1px solid rgba(255,255,255,.07);
+      background:linear-gradient(to bottom, rgba(255,255,255,.85), rgba(255,255,255,.5));
+      border-bottom:1px solid rgba(0,0,0,.08);
     }
     .nav{max-width:1100px; margin:0 auto; display:flex; align-items:center; gap:16px; padding:14px 20px;}
     .brand{font-weight:800; letter-spacing:.4px; font-size:1.05rem; display:flex; align-items:center; gap:.6rem;}
     .brand .dot{width:10px; height:10px; border-radius:999px; background:linear-gradient(135deg, var(--accent), #7fb7ff); box-shadow:0 0 14px var(--accent)}
     .nav a{color:var(--muted); text-decoration:none; font-weight:600; padding:.45rem .7rem; border-radius:999px;}
-    .nav a:hover,.nav a:focus{color:var(--text); background:rgba(255,255,255,.06); outline:none}
+    .nav a:hover,.nav a:focus{color:var(--text); background:rgba(59,130,246,.08); outline:none}
     .spacer{flex:1}
     .badge{display:inline-flex; gap:.5rem; align-items:center; padding:.35rem .7rem;
-      background:rgba(125,211,252,.08); color:var(--accent);
-      border:1px solid rgba(125,211,252,.25); border-radius:999px; font-size:.86rem; font-weight:700;
+      background:rgba(59,130,246,.08); color:var(--accent);
+      border:1px solid rgba(59,130,246,.25); border-radius:999px; font-size:.86rem; font-weight:700;
     }
 
     .hero{
@@ -42,8 +49,8 @@
       display:grid; grid-template-columns:.9fr 1.1fr; gap:32px;
     }
     .photo-wrap{
-      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
-      border:1px solid rgba(255,255,255,.08);
+      background:var(--bg-soft);
+      border:1px solid rgba(59,130,246,.25);
       border-radius:var(--radius); padding:18px; box-shadow:var(--shadow);
       display:flex; align-items:center; justify-content:center; min-height:320px;
     }
@@ -54,19 +61,21 @@
       object-fit:cover;
       object-position:50% 30%;
       transform: scale(1.08);
-      box-shadow:0 20px 40px rgba(0,0,0,.35);
-      border:1px solid rgba(255,255,255,.12);
-      background:#0b0f26 center/cover no-repeat;
+      box-shadow:0 20px 40px rgba(0,0,0,.1);
+      border:1px solid rgba(59,130,246,.2);
+      background:#f0f5ff center/cover no-repeat;
     }
     h1{font-size:clamp(2.2rem, 4.5vw, 3.4rem); line-height:1.1; margin:.75rem 0 1rem; letter-spacing:.2px;}
     .lead{color:var(--muted); font-size:1.05rem; margin:0 0 1.2rem}
     .cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:.6rem}
     .btn{appearance:none; border:none; cursor:pointer; font-weight:800; padding:.9rem 1.1rem; border-radius:12px;
       text-decoration:none; display:inline-flex; align-items:center; gap:.6rem;
-      background:linear-gradient(135deg, var(--accent), #7fb7ff); color:#071224; box-shadow:0 8px 28px rgba(125,211,252,.25);
+      background:linear-gradient(135deg, var(--accent), #7fb7ff); color:#ffffff; box-shadow:0 8px 28px rgba(59,130,246,.25);
+      transition:.2s;
     }
-    .btn.secondary{background:linear-gradient(135deg, #f472b6, var(--accent-2)); color:#220916; box-shadow:0 8px 28px rgba(244,114,182,.25);}
-    .btn.cv {background: linear-gradient(135deg, #7fb7ff, #3c9eff); color: #071224;}
+    .btn:hover{transform:translateY(-2px)}
+    .btn.secondary{background:linear-gradient(135deg, #f472b6, var(--accent-2)); color:#ffffff; box-shadow:0 8px 28px rgba(244,114,182,.25);}
+    .btn.cv {background: linear-gradient(135deg, #7fb7ff, #3c9eff); color: #ffffff;}
     .btn.cv:hover {background: linear-gradient(135deg, #99cfff, #5da8ff);}
 
     section{padding:56px 20px}
@@ -75,23 +84,21 @@
     .muted{color:var(--muted)}
 
     .grid{display:grid; gap:16px; grid-template-columns:repeat(12,1fr)}
-    .card{grid-column:span 12; background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015));
-      border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow);
+    .card{grid-column:span 12; background:var(--card);
+      border:1px solid rgba(59,130,246,.25); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow);
       transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
     }
-    .card:hover{transform:translateY(-2px); border-color:rgba(125,211,252,.35); box-shadow:0 14px 40px rgba(125,211,252,.08)}
+    .card:hover{transform:translateY(-2px); border-color:rgba(59,130,246,.35); box-shadow:0 14px 40px rgba(59,130,246,.08)}
     .card h3{margin:.2rem 0 .35rem; font-size:1.1rem}
     .tagrow{display:grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px 12px; margin-top: .75rem;}
-    .tag{display:flex; align-items:center; justify-content:center; height:38px; border-radius:999px; padding:0 .8rem; white-space:nowrap; font-weight:700; border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.06); color:var(--text);}
-    .tag:hover{background:rgba(255,255,255,.12)}
+    .tag{display:flex; align-items:center; justify-content:center; height:38px; border-radius:999px; padding:0 .8rem; white-space:nowrap; font-weight:700; border:1px solid rgba(59,130,246,.14); background:rgba(59,130,246,.06); color:var(--text);}
+    .tag:hover{background:rgba(59,130,246,.12)}
 
     @media (min-width: 820px){ .card.span-6{grid-column:span 6} }
     @media (max-width: 819px){ .hero{grid-template-columns:1fr} }
     @media (max-width: 520px){ .tagrow{ grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); } .tag{ height: 34px; } }
 
-    footer{padding:32px 20px 60px; color:var(--muted); text-align:center; border-top:1px solid rgba(255,255,255,.08);
-      background:linear-gradient(to top, rgba(255,255,255,.03), transparent);
-    }
+    footer{padding:32px 20px 60px; color:var(--muted); text-align:center; border-top:1px solid rgba(0,0,0,.08); background:var(--bg-soft);}
   </style>
 </head>
 <body>
@@ -122,10 +129,10 @@
         <h1>Bonjour, je suis <span style="background:linear-gradient(135deg,#b2e6ff,#ff8fc1); -webkit-background-clip:text; background-clip:text; color:transparent;">Cécile Trincavelli</span></h1>
         <p class="lead">
           Étudiante en <strong>BUT Réseaux & Télécommunications</strong> à Sophia Antipolis.  
-          J’aime configurer et administrer des réseaux (Cisco), travailler sur Linux/Windows et développer des outils web simples pour faciliter l’exploitation.
+          Passionnée par la compréhension des réseaux et des systèmes, je développe des projets pratiques et sécurisés pour apprendre et créer.
         </p>
         <p class="lead">
-          Actuellement à la recherche d’un <strong>stage en réseaux / systèmes</strong> pour mettre en pratique mes compétences en environnement professionnel.
+          Actuellement à la recherche d’un <strong>stage en réseaux / systèmes</strong> pour mettre en pratique mes compétences et découvrir le fonctionnement d’une entreprise.
         </p>
         <div class="cta-row">
           <a class="btn" href="#projets">Voir mes projets</a>
@@ -140,15 +147,13 @@
       <div class="wrap">
         <h2 class="section-title">À propos</h2>
         <p class="muted">
-          Je m’appelle Cécile, et j’ai choisi les réseaux parce que j’aime comprendre <strong>comment les choses communiquent entre elles</strong>.
-          Ce qui me plaît, ce n’est pas juste configurer du matériel, mais voir un système complet fonctionner grâce à une architecture que j’ai pensée.
+          Je m’appelle Cécile et je suis passionnée par les réseaux et la technologie.  
+          En parallèle de mes études, je suis animatrice diplômée BAFA et j’ai travaillé tous les étés et certaines vacances scolaires dans des centres de loisirs.  
+          J’ai un réel attachement pour les enfants, que j’accompagne dans leur quotidien et leurs activités, en mettant l’accent sur l’écoute, la sécurité et le développement personnel.
         </p>
         <p class="muted">
-          Pendant mon BUT Réseaux & Télécommunications, j’ai appris à concevoir des LAN, configurer des VLAN, administrer Linux, déployer des services et documenter proprement un projet comme en entreprise.
-          J’aime les projets concrets où l’on doit analyser un besoin réel et proposer une solution technique claire.
-        </p>
-        <p class="muted">
-          Je recherche aujourd’hui une expérience professionnelle pour continuer à développer mes compétences en réseau, systèmes et cybersécurité, dans un environnement où je peux apprendre et être utile à l’équipe.
+          Pendant mon BUT Réseaux & Télécommunications, j’ai consolidé mes compétences en conception et administration de réseaux, télécommunications, systèmes et cybersécurité.  
+          J’aime comprendre les besoins, proposer des solutions techniques claires et documentées, et voir un projet fonctionner de bout en bout.
         </p>
         <p class="muted">
           Langues : 🇬🇧 Anglais (B1+) • 🇪🇸 Espagnol (B1)
@@ -161,78 +166,28 @@
       <h2 class="section-title">Compétences techniques</h2>
       <div class="grid">
         <div class="card span-6">
-          <h3>🌐 Réseaux</h3>
-          <p class="muted">VLAN, routage, Cisco IOS, adressage IP, services réseau de base</p>
+          <h3>🌐 Réseaux informatiques</h3>
+          <p class="muted">Configuration et administration de réseaux locaux, VLAN, routage, services réseau (DHCP, DNS), mise en place de NAT et règles de sécurité.</p>
+        </div>
+        <div class="card span-6">
+          <h3>📡 Télécommunications & Fibre optique</h3>
+          <p class="muted">Connaissances en architectures télécoms, protocoles de transmission, câblage cuivre et fibre (mesures optiques, soudure, tests de continuité), compréhension des réseaux opérateurs.</p>
+        </div>
+        <div class="card span-6">
+          <h3>🛡 Cybersécurité</h3>
+          <p class="muted">Mise en place de règles de filtrage, bonnes pratiques de sécurisation, segmentation réseau, analyse de vulnérabilités de base.</p>
         </div>
         <div class="card span-6">
           <h3>💻 Systèmes</h3>
-          <p class="muted">Linux, Windows, Apache, bases SQL, administration de services</p>
+          <p class="muted">Administration de systèmes Linux/Windows, gestion de services et scripts simples.</p>
+        </div>
+        <div class="card span-6">
+          <h3>🛠 Développement & Bases de données</h3>
+          <p class="muted">Programmation en Python et C, développement Web (HTML/CSS/PHP), conception et gestion de bases SQL (modélisation, requêtes, administration).</p>
         </div>
         <div class="card span-6">
           <h3>🛠 Outils</h3>
-          <p class="muted">Packet Tracer, Wireshark, VS Code, VirtualBox</p>
-        </div>
-        <div class="card span-6">
-          <h3>📊 Gestion de projet</h3>
-          <p class="muted">Travail en équipe, RACI, Gantt, documentation technique</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJETS -->
-    <section id="projets">
-      <div class="wrap">
-        <h2 class="section-title">Projets universitaires & mises en situation professionnelle</h2>
-        <div class="grid">
-          <a class="card span-6" href="sae11.html">
-            <h3>Projet transversal S1</h3>
-            <p class="muted">
-              Découverte du parcours, organisation et mise en pratique des bases R&T (travail en équipe, méthode, documentation).
-              <strong>Livrables :</strong> cahier des charges, compte-rendu, planification.
-            </p>
-          </a>
-          <a class="card span-6" href="sae12.html">
-            <h3>S’initier aux réseaux informatiques</h3>
-            <p class="muted">
-              Adressage, VLAN, routage de base, configuration initiale d’équipements (Packet Tracer/Cisco).
-              <strong>Livrables :</strong> plan d’adressage, schéma réseau, configurations Cisco.
-            </p>
-          </a>
-          <a class="card span-6" href="sae13.html">
-            <h3>Découvrir un dispositif de transmission</h3>
-            <p class="muted">
-              Mesures simples, couche physique, premières caractérisations d’un lien de transmission.
-              <strong>Livrables :</strong> rapport de mesures, graphiques, analyse.
-            </p>
-          </a>
-          <a class="card span-6" href="sae14.html">
-            <h3>Se présenter sur Internet</h3>
-            <p class="muted">
-              Site personnel vitrine (HTML/CSS/JS), identité numérique, accessibilité et bonnes pratiques.
-              <strong>Livrables :</strong> site web fonctionnel, documentation, capture écran.
-            </p>
-          </a>
-          <a class="card span-6" href="sae21.html">
-            <h3>Construire un réseau pour petite structure</h3>
-            <p class="muted">
-              Conception d’un LAN complet : VLAN, routage, services de base, documentation et tests.
-              <strong>Livrables :</strong> schéma réseau, configurations Cisco, rapport technique.
-            </p>
-          </a>
-          <a class="card span-6" href="sae22.html">
-            <h3>Mesurer et caractériser un signal ou un système</h3>
-            <p class="muted">
-              Chaîne d’acquisition, mesures fréquentielles/temporelles, interprétation et rapport.
-              <strong>Livrables :</strong> rapport de mesures, graphiques, analyse.
-            </p>
-          </a>
-          <a class="card span-6" href="sae24.html">
-            <h3>Projet transversal S2</h3>
-            <p class="muted">
-              Intégration réseau/systèmes/données avec organisation (RACI, Gantt) et livrables finalisés.
-              <strong>Livrables :</strong> diagrammes, scripts, planification, rapport final.
-            </p>
-          </a>
+          <p class="muted">Packet Tracer, Wireshark, VS Code, VirtualBox, Gantt, RACI.</p>
         </div>
       </div>
     </section>
@@ -243,14 +198,20 @@
         <h2 class="section-title">Expériences</h2>
         <div class="grid">
           <article class="card span-6">
-            <h3>Animatrice — Mairie d’Antibes</h3>
-            <p class="muted">Encadrement et animation de groupes d’enfants, accompagnement au développement.</p>
-            <div class="tagrow"><span class="tag">Responsabilité</span><span class="tag">Pédagogie</span><span class="tag">Sécurité</span></div>
+            <h3>Animatrice en Centre de Loisirs</h3>
+            <p class="muted"><strong>Mairie d’Antibes</strong> | été 2023, 2024 et 2025, avril et décembre 2025<br>
+              <strong>Mairie de Nice</strong> | juillet 2025</p>
+            <p class="muted">
+              Encadrement et animation de groupes d’enfants durant la vie quotidienne et en temps d’activités.  
+              Accompagnement au développement de l’enfant, sécurité et créativité.
+            </p>
           </article>
           <article class="card span-6">
-            <h3>Équipière buvette / Agent événementiel</h3>
-            <p class="muted">Service & encaissement, accueil/relations clients, réassort & mise en place lors d’événements sportifs et festivals.</p>
-            <div class="tagrow"><span class="tag">Relationnel</span><span class="tag">Polyvalence</span><span class="tag">Rigueur</span></div>
+            <h3>Équipière buvette - Agent polyvalente événementiels</h3>
+            <p class="muted">Missions ponctuelles | juillet 2025 - actuellement</p>
+            <p class="muted">
+              Service client et encaissement, mise en place, réassort et rangement d’un stand, lors de matchs sportifs ou de festival.
+            </p>
           </article>
         </div>
       </div>
@@ -264,8 +225,59 @@
           📍 Antibes (06600) — 📞 07 88 79 93 52 — ✉️
           <a href="mailto:cecile.trincavelli@etu.unice.fr" style="color:var(--accent)">cecile.trincavelli@etu.unice.fr</a>
         </p>
+        <p class="muted">
+          🔗 <a href="https://www.linkedin.com/in/cécile-trincavelli-a75a2a307" style="color:var(--accent)">LinkedIn</a> | 
+          <a href="https://www.facebook.com/cecile.trincavelli/" style="color:var(--accent)">Facebook</a>
+        </p>
       </div>
     </section>
-  </main
+  </main>
+  <footer>© <span id="year"></span> Cécile Trincavelli — Portfolio Étudiante</footer>
 
+  <script>
+    // année
+    document.getElementById('year').textContent=new Date().getFullYear();
 
+    // scroll doux
+    if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      document.documentElement.style.scrollBehavior='smooth';
+    }
+
+    // ⭐ Starfield
+    (function starfield(){
+      const c=document.getElementById('stars-canvas');
+      const ctx=c.getContext('2d',{alpha:true});
+      let w,h,stars=[];
+      function resize(){ const dpr=Math.max(1,Math.min(2,window.devicePixelRatio||1));
+        w=c.width=Math.floor(innerWidth*dpr); h=c.height=Math.floor(innerHeight*dpr);
+        c.style.width=innerWidth+'px'; c.style.height=innerHeight+'px';}
+      function init(){ stars=[];
+        const n=Math.max(120, Math.min(380, Math.floor((innerWidth*innerHeight)/12000)));
+        for(let i=0;i<n;i++){stars.push({x:Math.random()*w,y:Math.random()*h,r:(Math.random()*1.4+.3),s:Math.random()*0.35+0.05,t:Math.random()*Math.PI*2})}}
+      function draw(){ ctx.clearRect(0,0,w,h); for(const s of stars){ s.y+=s.s; if(s.y>h){s.y=-10;s.x=Math.random()*w} s.t+=0.03; const tw=0.6+Math.sin(s.t)*0.4;
+        ctx.beginPath(); ctx.arc(s.x,s.y,s.r*tw,0,Math.PI*2); ctx.fillStyle='rgba(200,220,255,.9)'; ctx.fill();} requestAnimationFrame(draw);}
+      resize(); init(); draw(); window.addEventListener('resize',()=>{resize(); init();})
+    })();
+
+    // 🌺 hibiscus qui tombent
+    (function hibiscus(){
+      const layer=document.querySelector('.hibiscus-layer');
+      const imgs=[];
+      const n=12;
+      for(let i=0;i<n;i++){
+        const img=document.createElement('img');
+        img.src='https://i.postimg.cc/L6qzWw5B/hibiscus.png'; // exemple hibiscus transparent
+        img.style.position='absolute';
+        img.style.width=(20+Math.random()*40)+'px';
+        img.style.left=Math.random()*100+'%';
+        img.style.top=(-50-Math.random()*200)+'px';
+        img.style.opacity=Math.random()*0.8+0.2;
+        layer.appendChild(img);
+        imgs.push({el:img,y:parseFloat(img.style.top),speed:0.3+Math.random()*0.6});
+      }
+      function animate(){ for(const i of imgs){ i.y+=i.speed; if(i.y>window.innerHeight+50)i.y=-100;i.el.style.top=i.y+'px';} requestAnimationFrame(animate);}
+      animate();
+    })();
+  </script>
+</body>
+</html>
