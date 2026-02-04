@@ -1,26 +1,110 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SAÉ 21 — Construire un réseau pour petite structure</title>
-<style>/* style identique */ 
-  body{margin:0;color:#e8ecff;font-family:ui-sans-serif,system-ui;line-height:1.6;background:radial-gradient(1200px 800px at 50% -30%,#16204b 0%,#070816 55%) fixed}
-  .wrap{max-width:900px;margin:0 auto;padding:42px 20px 80px} a{color:#99e1ff}
-  .back{display:inline-block;margin:18px 0;text-decoration:none;padding:.5rem .8rem;border-radius:10px;background:rgba(153,225,255,.08);border:1px solid rgba(153,225,255,.25)}
-  .card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px;margin:14px 0}
-</style></head><body>
-<header><div class="wrap"><a class="back" href="index.html">← Retour</a></div></header>
+
+<style>
+:root{
+  --bg:#f0f4ff; --bg-soft:#e0e8ff; --card:#ffffff;
+  --text:#111827; --muted:#555a75; --accent:#4f9eff;
+  --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+
+.wrap{
+  max-width:900px;
+  margin:auto;
+  padding:30px 20px 80px;
+}
+
+.back{
+  display:inline-block;
+  margin:30px 0 10px;
+  text-decoration:none;
+  padding:.55rem .9rem;
+  border-radius:999px;
+  background:rgba(79,158,255,.08);
+  border:1px solid rgba(79,158,255,.25);
+  color:var(--accent);
+  font-weight:600;
+}
+
+h1{font-size:2.2rem;margin-bottom:20px}
+h2{margin-top:0;font-size:1.3rem}
+
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:20px;
+  margin:20px 0;
+  box-shadow:var(--shadow);
+}
+
+.muted{color:var(--muted)}
+ul{padding-left:1.2rem}
+a{color:var(--accent); font-weight:600;}
+</style>
+</head>
+
+<body>
+
 <div class="wrap">
+  <a class="back" href="index.html">← Retour au portfolio</a>
+
   <h1>SAÉ 21 — Construire un réseau pour petite structure</h1>
-  <div class="card"><h2>Objectifs</h2>
-    <ul>
-      <li>Concevoir une architecture LAN (VLAN, routage inter-VLAN).</li>
-      <li>Configurer services de base (DHCP, DNS local, NAT/PAT).</li>
-      <li>Tester, valider, documenter (schémas, procédures).</li>
+
+  <div class="card">
+    <h2>Objectifs de la SAÉ</h2>
+    <p class="muted">
+      Cette SAÉ consiste à concevoir et mettre en place l’infrastructure réseau d’une petite structure.
+      L’objectif est de répondre aux besoins en commutation, routage, services réseau essentiels et sécurité.
+      Le réseau repose sur des équipements et services informatiques fondamentaux afin de fournir une
+      architecture fonctionnelle, organisée et sécurisée.
+    </p>
+    <ul class="muted">
+      <li>Concevoir une architecture LAN (VLAN, segmentation, routage inter-VLAN).</li>
+      <li>Configurer les services de base : DHCP, DNS local, NAT/PAT.</li>
+      <li>Mettre en place des règles de sécurité réseau adaptées.</li>
+      <li>Tester, valider et documenter l’ensemble (schémas, procédures, résultats).</li>
     </ul>
   </div>
-  <div class="card"><h2>Livrables</h2>
-    <ul><li>Dossier d’architecture & schémas</li><li>Fiches de configuration</li><li>Plan de tests & résultats</li></ul>
+
+  <div class="card">
+    <h2>Compétences mobilisées</h2>
+    <p class="muted">
+      Conception d’architecture réseau, configuration d’équipements Cisco ou équivalents,
+      déploiement de services réseau, mise en œuvre de mécanismes de sécurité,
+      et production d’une documentation technique professionnelle.
+    </p>
   </div>
-  <div class="card"><h2>Compétences</h2>
-    <p>Conception réseau, configuration Cisco/équivalents, documentation pro.</p>
+
+  <div class="card">
+    <h2>Livrables attendus</h2>
+    <ul class="muted">
+      <li>Dossier d’architecture réseau avec schémas détaillés.</li>
+      <li>Fiches de configuration des équipements et services.</li>
+      <li>Plan de tests et résultats de validation.</li>
+    </ul>
   </div>
-</div></body></html>
+
+  <div class="card">
+    <h2>Enoncé officiel</h2>
+    <p>
+      📄 <a href="SAE21_2025.pdf" target="_blank">SAE21_2025</a>
+    </p>
+  </div>
+
+</div>
+
+</body>
+</html>
