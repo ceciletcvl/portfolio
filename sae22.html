@@ -1,22 +1,112 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SAÉ 22 — Mesurer et caractériser un signal ou un système</title>
-<style>/* style identique */ 
-  body{margin:0;color:#e8ecff;font-family:ui-sans-serif,system-ui;line-height:1.6;background:radial-gradient(1200px 800px at 50% -30%,#16204b 0%,#070816 55%) fixed}
-  .wrap{max-width:900px;margin:0 auto;padding:42px 20px 80px} a{color:#99e1ff}
-  .back{display:inline-block;margin:18px 0;text-decoration:none;padding:.5rem .8rem;border-radius:10px;background:rgba(153,225,255,.08);border:1px solid rgba(153,225,255,.25)}
-  .card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px;margin:14px 0}
-</style></head><body>
-<header><div class="wrap"><a class="back" href="index.html">← Retour</a></div></header>
+
+<style>
+:root{
+  --bg:#f0f4ff; --bg-soft:#e0e8ff; --card:#ffffff;
+  --text:#111827; --muted:#555a75; --accent:#4f9eff;
+  --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.1);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+.wrap{
+  max-width:900px;
+  margin:auto;
+  padding:30px 20px 80px;
+}
+.back{
+  display:inline-block;
+  margin:30px 0 10px;
+  text-decoration:none;
+  padding:.55rem .9rem;
+  border-radius:999px;
+  background:rgba(79,158,255,.08);
+  border:1px solid rgba(79,158,255,.25);
+  color:var(--accent);
+  font-weight:600;
+}
+h1{font-size:2.2rem;margin-bottom:20px}
+h2{margin-top:0;font-size:1.3rem}
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:20px;
+  margin:20px 0;
+  box-shadow:var(--shadow);
+}
+.muted{color:var(--muted)}
+ul{padding-left:1.2rem}
+a{color:var(--accent); font-weight:600;}
+</style>
+</head>
+
+<body>
+
 <div class="wrap">
+  <a class="back" href="index.html">← Retour au portfolio</a>
+
   <h1>SAÉ 22 — Mesurer et caractériser un signal ou un système</h1>
-  <div class="card"><h2>Objectifs</h2>
-    <ul><li>Mettre en œuvre une chaîne de mesures (selon matériel dispo).</li><li>Analyser signaux et réponses (temps/fréquence).</li></ul>
+
+  <div class="card">
+    <h2>Présentation du projet</h2>
+    <p class="muted">
+      Le projet <strong>HighDef</strong> se déroule en quatre phases et est réalisé en binôme.
+      L’ensemble du travail se fait en <strong>Python</strong>, sous <strong>Notebook Jupyter</strong>.
+      À la fin de chaque phase, un notebook doit être rendu par binôme sur Moodle.
+      Plusieurs évaluations sont réalisées tout au long du projet.
+    </p>
   </div>
-  <div class="card"><h2>Livrables</h2>
-    <ul><li>Procédure de mesure</li><li>Résultats & graphiques</li><li>Analyse & conclusions</li></ul>
+
+  <div class="card">
+    <h2>Déroulement des phases</h2>
+    <ul class="muted">
+      <li>
+        <strong>Phase I — Semaine 22 — Travail préliminaire (autonomie)</strong><br>
+        Travail préparatoire à réaliser lors de la première séance non encadrée (3h).
+        Les objectifs à atteindre sont définis dans le sujet de la phase I.
+      </li>
+      <li>
+        <strong>Phase II — Semaine 23 — Approfondissement</strong><br>
+        Séance de TP encadrée (3h). Les tâches seront présentées le jour de la séance
+        pour poursuivre et approfondir le projet.
+      </li>
+      <li>
+        <strong>Phase III — Semaine 23 — Finalisation (autonomie)</strong><br>
+        Séance non encadrée (3h) dédiée à la finalisation du projet et à la préparation
+        de l’entretien technique prévu en semaine 25.
+      </li>
+      <li>
+        <strong>Phase IV — Semaine 25 — Entretien technique</strong><br>
+        Présentation orale du travail par binôme lors d’un entretien d’environ 20 minutes,
+        comprenant des questions techniques.
+      </li>
+    </ul>
   </div>
-  <div class="card"><h2>Compétences</h2>
-    <p>Instrumentation, traitement élémentaire, esprit critique.</p>
+
+  <div class="card">
+    <h2>Compétences développées</h2>
+    <p class="muted">
+      Analyse de signaux, caractérisation de systèmes, traitement numérique sous Python,
+      utilisation de Jupyter Notebook, méthodologie scientifique et présentation technique des résultats.
+    </p>
   </div>
-</div></body></html>
+
+  <div class="card">
+    <h2>Énoncé</h2>
+    <p>📄 <a href="SAE22_sujet_2025-phase_I-v1.pdf" target="_blank">SAE22_sujet_2025-phase_I-v1</a></p>
+  </div>
+
+</div>
+
+</body>
+</html>
