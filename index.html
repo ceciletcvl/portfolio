@@ -20,26 +20,44 @@ body{
   overflow-x:hidden; line-height:1.6;
 }
 #stars-canvas{position:fixed; inset:0; z-index:-2}
-.hibiscus-layer{position:fixed; inset:0; pointer-events:none; z-index:-1; overflow:hidden}
+.hibiscus-layer{position:fixed; inset:0; pointer-events:none; z-index:-1; overflow:hidden;contain:layout paint;}
 
 header{position:sticky; top:0; z-index:20; backdrop-filter:blur(8px);
   background:linear-gradient(to bottom, rgba(255,255,255,.85), rgba(255,255,255,.5));
   border-bottom:1px solid rgba(0,0,0,.08);
 }
-.nav{max-width:1100px; margin:0 auto; display:flex; align-items:center; gap:16px; padding:14px 20px;}
-.brand{font-weight:800; letter-spacing:.4px; font-size:1.05rem; display:flex; align-items:center; gap:.6rem;}
-.brand .dot{width:10px; height:10px; border-radius:999px; background:linear-gradient(135deg, var(--accent), #7fb7ff); box-shadow:0 0 14px var(--accent)}
+.nav{max-width:1100px; margin:0 auto; display:flex; align-items:center; gap:16px; padding:14px 20px;flex-wrap:wrap;}
+.brand{font-weight:800; letter-spacing:.4px;display:flex; align-items:center; gap:.6rem;}
+.brand .dot{width:10px; height:10px; border-radius:999px;background:linear-gradient(135deg,var(--accent),#7fb7ff);}
 .nav a{color:var(--muted); text-decoration:none; font-weight:600; padding:.45rem .7rem; border-radius:999px;}
-.nav a:hover,.nav a:focus{color:var(--text); background:rgba(59,130,246,.08); outline:none}
+.nav a:hover{background:rgba(59,130,246,.08)}
 .spacer{flex:1}
-.badge{display:inline-flex; gap:.5rem; align-items:center; padding:.35rem .7rem;
-  background:rgba(59,130,246,.08); color:var(--accent);
-  border:1px solid rgba(59,130,246,.25); border-radius:999px; font-size:.86rem; font-weight:700;
+.badge{display:inline-flex; gap:.5rem; align-items:center;
+  padding:.35rem .7rem;
+  background:rgba(59,130,246,.08);
+  color:var(--accent);
+  border-radius:999px;
+  font-weight:700;
 }
 
-.hero{max-width:1100px; margin:0 auto; padding:90px 20px 64px; display:grid; grid-template-columns:.9fr 1.1fr; gap:32px;}
-.photo-wrap{background:var(--bg-soft); border:1px solid rgba(59,130,246,.25); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow); display:flex; align-items:center; justify-content:center; min-height:320px;}
-.photo{width:min(100%,360px); aspect-ratio:1/1; border-radius:22px; object-fit:cover; object-position:50% 30%; transform: scale(1.08); box-shadow:0 20px 40px rgba(0,0,0,.1); border:1px solid rgba(59,130,246,.2); background:#f0f5ff center/cover no-repeat;}
+.hero{max-width:1100px;
+  margin:0 auto;
+  padding:90px 20px 64px;
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  gap:32px;}
+.photo-wrap{background:var(--bg-soft);
+  border-radius:var(--radius);
+  padding:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:320px;}
+.photo{width:min(100%,360px);
+  aspect-ratio:1;
+  border-radius:22px;
+  object-fit:cover;
+  transform:scale(1.05);}
 
 h1{font-size:clamp(2.2rem, 4.5vw, 3.4rem); line-height:1.1; margin:.75rem 0 1rem; letter-spacing:.2px;}
 .lead{color:var(--muted); font-size:1.05rem; margin:0 0 1.2rem}
@@ -260,58 +278,77 @@ footer{padding:32px 20px 60px; color:var(--muted); text-align:center; border-top
 
 <script>
 (function(){
-  const layer = document.querySelector('.hibiscus-layer');
-  const MAX = 20;
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(prefersReduced) return;
 
-  const style = document.createElement('style');
-  style.textContent = `
-    @keyframes floatDown{
-      0%{transform:translate3d(var(--x,0), -12vh, 0) rotate(var(--rotStart,0deg))}
-      100%{transform:translate3d(calc(var(--x,0)+var(--drift,0px)),112vh,0) rotate(var(--rotEnd,360deg))}
-    }
-    .hibi{
-      position:absolute;
-      width:var(--size,16px);
-      height:var(--size,16px);
-      opacity:.85;
-      filter:drop-shadow(0 4px 8px rgba(255,106,167,.25));
-      animation:floatDown linear both;
-      animation-duration:var(--dur,18s);
-      will-change:transform;
-    }
-  `;
-  document.head.appendChild(style);
+const layer=document.querySelector('.hibiscus-layer');
 
-  function spawnOne(delay=0){
-    const svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
-    svg.setAttribute('viewBox','0 0 100 100');
-    svg.classList.add('hibi');
-    svg.style.left = (Math.random()*100)+'vw';
-    svg.style.setProperty('--x',(Math.random()*20-10)+'px');
-    svg.style.setProperty('--drift',(Math.random()*80-40)+'px');
-    svg.style.setProperty('--size',(Math.random()*12+20)+'px');
-    svg.style.setProperty('--dur',(Math.random()*3+3)+'s');
-    svg.style.setProperty('--rotStart',Math.floor(Math.random()*360)+'deg');
-    svg.style.setProperty('--rotEnd',Math.floor(Math.random()*360+360)+'deg');
-    svg.style.animationDelay = (Math.random()*6 + delay)+'s';
-    
-    const useEl = document.createElementNS('http://www.w3.org/2000/svg','use');
-    useEl.setAttributeNS('http://www.w3.org/1999/xlink','xlink:href','#hibiscus');
-    svg.appendChild(useEl);
-    
-    svg.addEventListener('animationend', ()=>{
-      svg.remove();
-      spawnOne(0);
-    });
-    
-    layer.appendChild(svg);
-  }
+/* moins d'éléments sur mobile */
+const MAX=window.innerWidth<600?12:35;
 
-  for(let i=0;i<MAX;i++) spawnOne(i*0.35);
+const prefersReduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(prefersReduced) return;
+
+const style=document.createElement('style');
+style.textContent=`
+@keyframes floatDown{
+0%{
+transform:translate3d(var(--x,0),-20vh,0) rotate(var(--rotStart,0deg))
+}
+100%{
+transform:translate3d(
+calc(var(--x,0)+var(--drift,0px)),
+130vh,
+0
+) rotate(var(--rotEnd,720deg))
+}
+}
+.hibi{
+position:absolute;
+width:var(--size,24px);
+height:var(--size,24px);
+opacity:.9;
+filter:drop-shadow(0 6px 12px rgba(255,106,167,.25));
+animation:floatDown linear forwards;
+animation-duration:var(--dur,20s);
+will-change:transform;
+}
+`;
+document.head.appendChild(style);
+
+function spawn(){
+
+const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+svg.setAttribute('viewBox','0 0 100 100');
+svg.classList.add('hibi');
+
+svg.style.left=Math.random()*100+'vw';
+svg.style.setProperty('--size',(Math.random()*20+20)+'px');
+svg.style.setProperty('--dur',(Math.random()*12+14)+'s');
+svg.style.setProperty('--x',(Math.random()*40-20)+'px');
+svg.style.setProperty('--drift',(Math.random()*160-80)+'px');
+svg.style.setProperty('--rotStart',Math.random()*360+'deg');
+svg.style.setProperty('--rotEnd',Math.random()*720+'deg');
+
+const use=document.createElementNS('http://www.w3.org/2000/svg','use');
+use.setAttributeNS('http://www.w3.org/1999/xlink','xlink:href','#hibiscus');
+svg.appendChild(use);
+
+svg.addEventListener('animationend',()=>{
+svg.remove();
+spawn();
+});
+
+layer.appendChild(svg);
+}
+
+/* spawn progressif */
+for(let i=0;i<MAX;i++){
+setTimeout(spawn,i*400);
+}
+
 })();
 </script>
+
 </body>
 </html>
+
 
