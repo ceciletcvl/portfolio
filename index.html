@@ -7,17 +7,30 @@
 
 <style>
 :root{
-  --bg:#e6f0ff; --bg-soft:#f0f5ff; --card:#ffffff; --card-2:#f9faff;
-  --text:#0f172a; --muted:#4b5563; --accent:#3b82f6; --accent-2:#f472b6;
-  --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.15);
+  --bg:#eef5ff;
+  --bg-soft:#f6f9ff;
+  --card:#ffffff;
+  --card-border:#dbeafe;
+
+  --text:#0f172a;
+  --muted:#475569;
+
+  --accent:#60a5fa;
+  --accent-strong:#3b82f6;
+
+  --radius:20px;
+  --shadow:0 12px 30px rgba(0,0,0,.08);
 }
 
 *{box-sizing:border-box}
 body{
-margin:0;
-font-family:ui-sans-serif, system-ui;
-overflow-x:hidden;
+  margin:0;
+  font-family:ui-sans-serif, system-ui;
+  overflow-x:hidden;
+  background:linear-gradient(180deg,var(--bg),#ffffff);
+  color:var(--text);
 }
+
 
 /* ===== FOND ===== */
 
@@ -102,13 +115,11 @@ gap:32px;
 }
 
 .photo-wrap{
-background:var(--bg-soft);
-border-radius:var(--radius);
-padding:18px;
-display:flex;
-align-items:center;
-justify-content:center;
-min-height:320px;
+  background:white;
+  border-radius:var(--radius);
+  padding:20px;
+  box-shadow:var(--shadow);
+  border:1px solid var(--card-border);
 }
 
 .photo{
@@ -145,6 +156,90 @@ border-radius:12px;
 .burger{display:block}
 }
 
+/* ===== CONTENEUR TEXTE HERO ===== */
+
+.hero-text{
+  background:var(--card);
+  border:1px solid var(--card-border);
+  border-radius:var(--radius);
+  padding:36px;
+  box-shadow:var(--shadow);
+}
+
+/* badge */
+.badge{
+  display:inline-block;
+  background:#e0edff;
+  color:#2563eb;
+  padding:.4rem .9rem;
+  border-radius:999px;
+  font-weight:600;
+  margin-bottom:10px;
+}
+
+/* texte */
+.lead{
+  color:var(--muted);
+  line-height:1.6;
+}
+
+/* boutons */
+.cta-row{
+  margin-top:18px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  background:var(--accent);
+  color:white;
+  padding:.7rem 1.2rem;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.btn:hover{
+  background:var(--accent-strong);
+}
+
+.btn.secondary{
+  background:#e0edff;
+  color:#2563eb;
+}
+
+.btn.cv{
+  background:#fce7f3;
+  color:#be185d;
+}
+
+/* ===== SECTIONS ===== */
+
+.wrap{
+  max-width:1100px;
+  margin:0 auto;
+  padding:40px 20px;
+}
+
+section{
+  margin:40px 0;
+}
+
+.section-title{
+  margin-bottom:20px;
+}
+
+/* cartes texte */
+section .wrap{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:40px;
+  border:1px solid var(--card-border);
+  box-shadow:var(--shadow);
+}
+
+  
 </style>
 </head>
 
@@ -186,7 +281,7 @@ border-radius:12px;
 <img class="photo" src="photo-cecile.jpg">
 </div>
 
-<div>
+<div class="hero-text">
 <span class="badge">⭐ Étudiante — Réseaux & Télécom 🌺</span>
 <h1>Bonjour, je suis <span style="background:linear-gradient(135deg,#b2e6ff,#ff8fc1); -webkit-background-clip:text; background-clip:text; color:transparent;">Cécile Trincavelli</span></h1>
 <p class="lead">Étudiante en <strong>BUT Réseaux & Télécommunications</strong> à Sophia Antipolis, passionnée par les réseaux, systèmes et la cybersécurité.</p>
@@ -374,4 +469,5 @@ document.head.appendChild(style);
 
 </body>
 </html>
+
 
