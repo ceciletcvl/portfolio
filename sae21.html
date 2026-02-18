@@ -53,6 +53,13 @@ h2{margin-top:0;font-size:1.3rem}
 .muted{color:var(--muted)}
 ul{padding-left:1.2rem}
 a{color:var(--accent); font-weight:600;}
+.hibiscus-layer{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1; /* pour être derrière le contenu */
+  overflow: hidden;
+}
 </style>
 </head>
 
@@ -62,7 +69,7 @@ a{color:var(--accent); font-weight:600;}
   <a class="back" href="index.html">← Retour au portfolio</a>
 
   <h1>SAÉ 21 — Construire un réseau pour petite structure</h1>
-
+  <div class="hibiscus-layer"></div>
   <div class="card">
     <h2>Objectifs de la SAÉ</h2>
     <p class="muted">
@@ -105,6 +112,35 @@ a{color:var(--accent); font-weight:600;}
   </div>
 
 </div>
+<script>
+/* ===== HIBISCUS ===== */
+const layer = document.querySelector('.hibiscus-layer');
 
+function spawn() {
+  const flower = document.createElement("div");
+  flower.textContent = "🌺"; // emoji hibiscus
+  flower.style.position = "absolute";
+  flower.style.left = Math.random() * 100 + "vw";
+  flower.style.top = "-40px";
+  flower.style.fontSize = (Math.random() * 20 + 20) + "px";
+  flower.style.animation = "fall linear forwards";
+  flower.style.animationDuration = (Math.random() * 5 + 6) + "s";
+  layer.appendChild(flower);
+  setTimeout(() => flower.remove(), 10000);
+}
+
+setInterval(spawn, 300);
+
+/* animation keyframes ajoutée dynamiquement */
+const style = document.createElement("style");
+style.innerHTML = `
+@keyframes fall {
+  0% { transform: translateY(-40px) rotate(0) }
+  100% { transform: translateY(110vh) rotate(360deg) }
+}
+`;
+document.head.appendChild(style);
+</script>
 </body>
 </html>
+
