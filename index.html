@@ -292,6 +292,17 @@ section{padding:56px 20px}
   text-decoration:none;
   font-weight:600;}
 .link:hover{text-decoration:underline;}
+.skill-header{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:5px;
+}
+
+.skill-header img{
+  width:30px;
+  height:30px;
+}
   
 </style>
 </head>
@@ -360,165 +371,168 @@ section{padding:56px 20px}
 
 <h2 class="section-title">💻 Compétences techniques</h2>
 
-<div class="skills-grid">
+<div class="grid">
 
   <!-- PYTHON -->
-  <div class="skill-card">
+  <article class="card span-6">
     <div class="skill-header">
       <img src="python.png.png">
       <h3>Python</h3>
     </div>
     <span class="level plus">Intermédiaire +</span>
-    <p>Scripts d’automatisation, manipulation de données et outils pour les réseaux.</p>
+    <p class="muted">Scripts d’automatisation, manipulation de données et outils réseau.</p>
     <a href="lien.html" class="link">Voir SAE</a>
-  </div>
+  </article>
 
   <!-- C -->
-  <div class="skill-card">
+  <article class="card span-6">
     <div class="skill-header">
       <img src="c.png">
       <h3>C</h3>
     </div>
     <span class="level mid">Intermédiaire</span>
-    <p>Programmation bas niveau, gestion mémoire et logique algorithmique.</p>
+    <p class="muted">Programmation bas niveau, gestion mémoire et logique algorithmique.</p>
     <a href="lien.html" class="link">Voir SAE</a>
-  </div>
+  </article>
 
   <!-- JAVA -->
-  <div class="skill-card">
+  <article class="card span-6">
     <div class="skill-header">
       <img src="java.png">
       <h3>Java</h3>
     </div>
     <span class="level mid">Intermédiaire</span>
-    <p>Programmation orientée objet et développement d’applications simples.</p>
+    <p class="muted">Programmation orientée objet et développement d’applications.</p>
     <a href="lien.html" class="link">Voir SAE</a>
-  </div>
+  </article>
 
   <!-- PHP -->
-  <div class="skill-card">
+  <article class="card span-6">
     <div class="skill-header">
       <img src="php.png.png">
       <h3>PHP</h3>
     </div>
     <span class="level mid">Intermédiaire</span>
-    <p>Développement web dynamique avec formulaires et gestion serveur.</p>
+    <p class="muted">Développement web dynamique avec formulaires et logique serveur.</p>
     <a href="lien.html" class="link">Voir SAE</a>
-  </div>
+  </article>
 
   <!-- SQLITE -->
-  <div class="skill-card">
+  <article class="card span-6">
     <div class="skill-header">
       <img src="sqlite.png.png">
       <h3>SQLite</h3>
     </div>
     <span class="level plus">Intermédiaire +</span>
-    <p>Création de bases, requêtes SQL et intégration dans des applications.</p>
+    <p class="muted">Bases de données, requêtes SQL et intégration applicative.</p>
     <a href="lien.html" class="link">Voir SAE</a>
-  </div>
+  </article>
 
   <!-- WEB -->
-  <div class="skill-card">
+  <article class="card span-6">
     <div class="skill-header">
       <img src="html.png">
       <h3>HTML / CSS / JS</h3>
     </div>
     <span class="level plus">Intermédiaire +</span>
-    <p>Création de sites web responsives avec animations et UI modernes.</p>
+    <p class="muted">Création de sites web modernes, responsive et interactifs.</p>
     <a href="lien.html" class="link">Voir SAE</a>
-  </div>
+  </article>
 
   <!-- LINUX -->
-  <div class="skill-card">
+  <article class="card span-6">
     <div class="skill-header">
       <img src="linux.png">
       <h3>Linux</h3>
     </div>
     <span class="level mid">Intermédiaire</span>
-    <p>Administration système, shell, gestion des services et droits utilisateurs.</p>
+    <p class="muted">Administration système, shell, gestion des services.</p>
     <a href="lien.html" class="link">Voir SAE</a>
-  </div>
+  </article>
 
   <!-- WINDOWS -->
-  <div class="skill-card">
+  <article class="card span-6">
     <div class="skill-header">
       <img src="windows.png">
       <h3>Windows</h3>
     </div>
     <span class="level mid">Intermédiaire</span>
-    <p>Configuration système, gestion utilisateurs et outils réseau.</p>
+    <p class="muted">Configuration système et gestion des utilisateurs.</p>
     <a href="lien.html" class="link">Voir SAE</a>
-  </div>
+  </article>
 
   <!-- CISCO -->
-  <div class="skill-card highlight">
+  <article class="card span-6">
     <div class="skill-header">
       <img src="cisco.png">
       <h3>Réseaux Cisco</h3>
     </div>
     <span class="level advanced">Avancé</span>
-    <p>VLAN, routage, ASA, NAT, DMZ et architectures réseau complètes.</p>
+    <p class="muted">VLAN, routage, ASA, NAT, DMZ et architectures réseau.</p>
     <a href="lien.html" class="link">Voir SAE</a>
-  </div>
+  </article>
 
   <!-- GNS3 -->
-  <div class="skill-card highlight">
+  <article class="card span-6">
     <div class="skill-header">
       <img src="gns3.png">
       <h3>GNS3 / Packet Tracer</h3>
     </div>
     <span class="level advanced">Avancé</span>
-    <p>Simulation de réseaux complexes et tests d’infrastructures.</p>
+    <p class="muted">Simulation et test de réseaux complexes.</p>
     <a href="lien.html" class="link">Voir SAE</a>
-  </div>
+  </article>
 
   <!-- ARDUINO -->
-  <div class="skill-card">
+  <article class="card span-6">
     <div class="skill-header">
       <img src="arduino.png">
       <h3>Arduino & LoRa</h3>
     </div>
     <span class="level mid">Intermédiaire</span>
-    <p>Programmation de capteurs et communication IoT longue portée.</p>
+    <p class="muted">Programmation IoT et communication longue portée.</p>
     <a href="lien.html" class="link">Voir SAE</a>
-  </div>
+  </article>
 
   <!-- SIMULINK -->
-  <div class="skill-card">
+  <article class="card span-6">
     <div class="skill-header">
       <img src="matlab.png">
       <h3>Simulink</h3>
     </div>
     <span class="level mid">Intermédiaire</span>
-    <p>Simulation de systèmes et traitement du signal.</p>
+    <p class="muted">Simulation de systèmes et traitement du signal.</p>
     <a href="lien.html" class="link">Voir SAE</a>
-  </div>
+  </article>
 
   <!-- GSTREAMER -->
-  <div class="skill-card">
+  <article class="card span-6">
     <div class="skill-header">
       <img src="gstreamer.png">
       <h3>GStreamer</h3>
     </div>
     <span class="level mid">Intermédiaire</span>
-    <p>Traitement et streaming de flux audio/vidéo.</p>
+    <p class="muted">Traitement et streaming audio/vidéo.</p>
     <a href="lien.html" class="link">Voir SAE</a>
-  </div>
+  </article>
 
   <!-- FIBRE -->
-  <div class="skill-card fibre">
+  <article class="card span-6">
     <div class="skill-header">
       <img src="fibre.jpg">
       <h3>Fibre optique</h3>
     </div>
     <span class="level mid">En cours</span>
-    <p>FTTH, architecture opérateur, mesures optiques (stage).</p>
+    <p class="muted">FTTH, architecture opérateur, mesures optiques.</p>
     <a href="lien.html" class="link">Voir SAE</a>
-  </div>
+  </article>
 
 </div>
+
 </div>
 </section>
+  
+
   
 <section id="competences">
 <div class="wrap">
