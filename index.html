@@ -303,7 +303,41 @@ section{padding:56px 20px}
   width:30px;
   height:30px;
 }
-  
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:20px;
+}
+
+#competences .card{
+  grid-column:span 1; /* 3 par ligne */
+}
+
+/* responsive */
+@media(max-width:900px){
+  #competences .grid{
+    grid-template-columns:repeat(2, 1fr);
+  }
+}
+
+@media(max-width:600px){
+  #competences .grid{
+    grid-template-columns:1fr;
+  }
+}
+  #competences .card{
+  padding:16px;
+  border-radius:18px;
+}
+
+#competences .card h3{
+  font-size:1rem;
+}
+
+#competences .card p{
+  font-size:.9rem;
+}
+
+
 </style>
 </head>
 
