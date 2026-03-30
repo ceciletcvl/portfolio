@@ -67,6 +67,21 @@ a{color:var(--accent); font-weight:600;}
   z-index: -1; /* pour être derrière le contenu */
   overflow: hidden;
 }
+.tagrow{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:10px;
+}
+
+.tag{
+  padding:8px 14px;
+  border-radius:999px;
+  background:rgba(79,158,255,.1);
+  border:1px solid rgba(79,158,255,.2);
+  font-size:.85rem;
+  font-weight:600;
+}
 </style>
 </head>
 
@@ -75,7 +90,6 @@ a{color:var(--accent); font-weight:600;}
   <a class="back" href="index.html#projets">← Retour au portfolio</a>
 
   <h1>SAE - 13 : Découvrir un dispositif de transmission</h1>
-  <div class="hibiscus-layer"></div>
   <div class="card">
     <h2>Objectifs de la SAÉ</h2>
     <p class="muted">
@@ -92,6 +106,20 @@ a{color:var(--accent); font-weight:600;}
       Le travail consiste également à interpréter les résultats obtenus et à présenter de manière
       structurée les mesures réalisées ainsi que leur analyse.
     </p>
+
+    <h3 style="margin-top:20px;">Compétences développées</h3>
+
+<div class="tagrow">
+  <span class="tag">📡 Analyse d’une liaison coaxiale</span>
+  <span class="tag">📶 Étude de la propagation du signal</span>
+  <span class="tag">⚡ Compréhension de l’impédance</span>
+  <span class="tag">📉 Analyse de l’atténuation</span>
+  <span class="tag">🧪 Réalisation de mesures expérimentales</span>
+  <span class="tag">📊 Interprétation de résultats</span>
+  <span class="tag">🔬 Caractérisation d’un système de transmission</span>
+  <span class="tag">🧠 Compréhension des phénomènes physiques</span>
+  <span class="tag">📝 Rédaction de rapport technique</span>
+</div>
   </div>
 
   <div class="card">
@@ -100,37 +128,14 @@ a{color:var(--accent); font-weight:600;}
       📄 <a href="2024-2025-SAE13.pdf" target="_blank">2024-2025-SAE13</a>
     </p>
   </div>
-
+ <div class="card">
+    <h2>Travail Effectué</h2>
+    <p>
+      📄 <a href="CR_saé13trincavelli.pdf" target="_blank">Mon travail </a>
+    </p>
+  </div>
+  
 </div>
-<script>
-/* ===== HIBISCUS ===== */
-const layer = document.querySelector('.hibiscus-layer');
-
-function spawn() {
-  const flower = document.createElement("div");
-  flower.textContent = "🌺"; // emoji hibiscus
-  flower.style.position = "absolute";
-  flower.style.left = Math.random() * 100 + "vw";
-  flower.style.top = "-40px";
-  flower.style.fontSize = (Math.random() * 20 + 20) + "px";
-  flower.style.animation = "fall linear forwards";
-  flower.style.animationDuration = (Math.random() * 5 + 6) + "s";
-  layer.appendChild(flower);
-  setTimeout(() => flower.remove(), 10000);
-}
-
-setInterval(spawn, 300);
-
-/* animation keyframes ajoutée dynamiquement */
-const style = document.createElement("style");
-style.innerHTML = `
-@keyframes fall {
-  0% { transform: translateY(-40px) rotate(0) }
-  100% { transform: translateY(110vh) rotate(360deg) }
-}
-`;
-document.head.appendChild(style);
-</script>
 </body>
 </html>
 
