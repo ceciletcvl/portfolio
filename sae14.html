@@ -60,6 +60,21 @@ a{color:var(--accent); font-weight:600;}
   z-index: -1; /* pour être derrière le contenu */
   overflow: hidden;
 }
+  .tagrow{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:10px;
+}
+
+.tag{
+  padding:8px 14px;
+  border-radius:999px;
+  background:rgba(79,158,255,.1);
+  border:1px solid rgba(79,158,255,.2);
+  font-size:.85rem;
+  font-weight:600;
+}
 </style>
 </head>
 
@@ -87,7 +102,6 @@ a{color:var(--accent); font-weight:600;}
   <span class="tag">📝 Recherche et synthèse d’informations</span>
   <span class="tag">🎯 Communication pédagogique</span>
 </div>
-  </div>
 </div>
   <div class="card">
     <h2>Deux axes de travail</h2>
