@@ -243,7 +243,7 @@ section{padding:56px 20px}
 .card:hover{transform:translateY(-2px); border-color:rgba(59,130,246,.35); box-shadow:0 14px 40px rgba(59,130,246,.08)}
 .card h3{margin:.2rem 0 .35rem; font-size:1.1rem}
 .tagrow{display:grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px 12px; margin-top: .75rem;}
-.tag{display:flex; align-items:center; justify-content:center; height:38px; border-radius:999px; padding:0 .8rem; white-space:nowrap; font-weight:700; border:1px solid rgba(59,130,246,.14); background:rgba(59,130,246,.06); color:var(--text);}
+.tag{display:flex; align-items:center; justify-content:center; height:38px; border-radius:999px; padding:8px 12px; white-space:normal;  text-align:center; font-weight:700; border:1px solid rgba(59,130,246,.14); background:rgba(59,130,246,.06); color:var(--text);}
 .tag:hover{background:rgba(59,130,246,.12)}
 
 .skill-header{
@@ -354,6 +354,30 @@ section{padding:56px 20px}
     grid-template-columns:1fr;
   }
 }
+
+.skill-full{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  padding:12px;
+  border-radius:16px;
+  background:rgba(59,130,246,.06);
+}
+
+.skill-full img{
+  width:30px;
+}
+
+.skill-full h4{
+  margin:0;
+  font-size:.95rem;
+}
+
+.skill-full p{
+  margin:4px 0;
+  font-size:.8rem;
+}
+  
 </style>
 </head>
 
@@ -416,22 +440,46 @@ section{padding:56px 20px}
 </section>
 
 <!-- COMPÉTENCES -->
-<section id="softskills">
+<section id="competences">
 <div class="wrap">
-
-<h2 class="section-title">💻 Compétences techniques</h2>
-
+<h2 class="section-title">Compétences techniques</h2>
 <div class="grid">
 
   <!-- PYTHON -->
   <article class="card span-6">
-    <div class="skill-header">
-      <img src="python.png.png">
-      <h3>Python</h3>
-    </div>
+    <div class="tagrow">
+     <div class="tag skill-full">
+
+  <img src="python.png.png">
+
+  <div>
+    <h4>Python</h4>
     <span class="level plus">Intermédiaire +</span>
-    <p class="muted">Scripts d’automatisation, manipulation de données et outils réseau.</p>
-    <a href="lien.html" class="link">Voir SAE</a>
+    <p>Scripts d’automatisation, manipulation de données et outils réseau.</p>
+    <a href="lien.html">Voir SAE</a>
+  </div>
+
+</div>
+<div class="tag skill-full">
+
+  <img src="python.png.png">
+
+  <div>
+    <h4>Python</h4>
+    <span class="level plus">Intermédiaire +</span>
+    <p>Scripts d’automatisation, manipulation de données et outils réseau.</p>
+    <a href="lien.html">Voir SAE</a>
+  </div>
+
+</div>
+    <div class="tag skill-mini">
+    <img src="linux.png">
+    <div>
+      <strong>Linux</strong><br>
+      Administration système
+    </div>
+  </div>
+</div>
   </article>
 
   <!-- C -->
@@ -575,7 +623,8 @@ section{padding:56px 20px}
     <span class="level mid">En cours</span>
     <p class="muted">FTTH, architecture opérateur, mesures optiques.</p>
     <a href="lien.html" class="link">Voir SAE</a>
-  </article>
+    
+</article>
 
 </div>
 
