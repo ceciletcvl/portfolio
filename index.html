@@ -245,6 +245,54 @@ section{padding:56px 20px}
 .tagrow{display:grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px 12px; margin-top: .75rem;}
 .tag{display:flex; align-items:center; justify-content:center; height:38px; border-radius:999px; padding:0 .8rem; white-space:nowrap; font-weight:700; border:1px solid rgba(59,130,246,.14); background:rgba(59,130,246,.06); color:var(--text);}
 .tag:hover{background:rgba(59,130,246,.12)}
+
+.skill-header{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.skill-header img{
+  width:28px;
+  height:28px;
+  object-fit:contain;
+}
+
+.level{
+  display:inline-block;
+  padding:4px 10px;
+  border-radius:999px;
+  font-size:.8rem;
+  font-weight:600;
+  margin:8px 0;
+}
+
+/* couleurs niveaux */
+.level.mid{
+  background:#fff7ed;
+  color:#ea580c; /* orange */
+}
+
+.level.plus{
+  background:#ecfdf5;
+  color:#16a34a; /* vert */
+}
+
+.level.advanced{
+  background:#dcfce7;
+  color:#166534; /* vert foncé */
+}
+
+/* lien SAE */
+.link{
+  display:inline-block;
+  margin-top:10px;
+  font-size:.85rem;
+  color:#3b82f6;
+  text-decoration:none;
+  font-weight:600;}
+.link:hover{text-decoration:underline;}
+  
 </style>
 </head>
 
@@ -309,39 +357,173 @@ section{padding:56px 20px}
 <!-- COMPÉTENCES -->
 <section id="competences">
 <div class="wrap">
-<h2 class="section-title">Compétences techniques</h2>
 
-<h3>Réseaux informatiques</h3>
-<p class="muted">Configuration et administration de réseaux locaux, VLAN, routage, services réseau (DHCP, DNS), mise en place de NAT et règles de sécurité.</p>
+<h2 class="section-title">💻 Compétences techniques</h2>
 
-<h3>Télécommunications & Fibre optique</h3>
-<p class="muted">Connaissances en architectures télécoms, protocoles de transmission, câblage cuivre et fibre (mesures optiques, soudure, tests de continuité), compréhension des réseaux opérateurs.</p>
+<div class="skills-grid">
 
-<h3>Cybersécurité</h3>
-<p class="muted">Mise en place de règles de filtrage, bonnes pratiques de sécurisation, segmentation réseau, analyse de vulnérabilités de base.</p>
+  <!-- PYTHON -->
+  <div class="skill-card">
+    <div class="skill-header">
+      <img src="python.png.png">
+      <h3>Python</h3>
+    </div>
+    <span class="level plus">Intermédiaire +</span>
+    <p>Scripts d’automatisation, manipulation de données et outils pour les réseaux.</p>
+    <a href="lien.html" class="link">Voir SAE</a>
+  </div>
 
-<h3>Systèmes</h3>
-<p class="muted">Administration de systèmes Linux/Windows, gestion de services et scripts simples.</p>
+  <!-- C -->
+  <div class="skill-card">
+    <div class="skill-header">
+      <img src="c.png">
+      <h3>C</h3>
+    </div>
+    <span class="level mid">Intermédiaire</span>
+    <p>Programmation bas niveau, gestion mémoire et logique algorithmique.</p>
+    <a href="lien.html" class="link">Voir SAE</a>
+  </div>
 
-<h3>Développement & Bases de données</h3>
-<p class="muted">Programmation en Python et C, développement Web (HTML/CSS/PHP), conception et gestion de bases SQL (modélisation, requêtes, administration).</p>
+  <!-- JAVA -->
+  <div class="skill-card">
+    <div class="skill-header">
+      <img src="java.png">
+      <h3>Java</h3>
+    </div>
+    <span class="level mid">Intermédiaire</span>
+    <p>Programmation orientée objet et développement d’applications simples.</p>
+    <a href="lien.html" class="link">Voir SAE</a>
+  </div>
 
-<h3>Outils</h3>
-<div class="tagrow">
-<span class="tag">Cisco Packet Tracer</span>
-<span class="tag">Wireshark</span>
-<span class="tag">GNS3</span>
-<span class="tag">VirtualBox / VMware</span>
-<span class="tag">VS Code</span>
-<span class="tag">Git/GitHub</span>
-<span class="tag">SQLite</span>
+  <!-- PHP -->
+  <div class="skill-card">
+    <div class="skill-header">
+      <img src="php.png.png">
+      <h3>PHP</h3>
+    </div>
+    <span class="level mid">Intermédiaire</span>
+    <p>Développement web dynamique avec formulaires et gestion serveur.</p>
+    <a href="lien.html" class="link">Voir SAE</a>
+  </div>
+
+  <!-- SQLITE -->
+  <div class="skill-card">
+    <div class="skill-header">
+      <img src="sqlite.png.png">
+      <h3>SQLite</h3>
+    </div>
+    <span class="level plus">Intermédiaire +</span>
+    <p>Création de bases, requêtes SQL et intégration dans des applications.</p>
+    <a href="lien.html" class="link">Voir SAE</a>
+  </div>
+
+  <!-- WEB -->
+  <div class="skill-card">
+    <div class="skill-header">
+      <img src="html.png">
+      <h3>HTML / CSS / JS</h3>
+    </div>
+    <span class="level plus">Intermédiaire +</span>
+    <p>Création de sites web responsives avec animations et UI modernes.</p>
+    <a href="lien.html" class="link">Voir SAE</a>
+  </div>
+
+  <!-- LINUX -->
+  <div class="skill-card">
+    <div class="skill-header">
+      <img src="linux.png">
+      <h3>Linux</h3>
+    </div>
+    <span class="level mid">Intermédiaire</span>
+    <p>Administration système, shell, gestion des services et droits utilisateurs.</p>
+    <a href="lien.html" class="link">Voir SAE</a>
+  </div>
+
+  <!-- WINDOWS -->
+  <div class="skill-card">
+    <div class="skill-header">
+      <img src="windows.png">
+      <h3>Windows</h3>
+    </div>
+    <span class="level mid">Intermédiaire</span>
+    <p>Configuration système, gestion utilisateurs et outils réseau.</p>
+    <a href="lien.html" class="link">Voir SAE</a>
+  </div>
+
+  <!-- CISCO -->
+  <div class="skill-card highlight">
+    <div class="skill-header">
+      <img src="cisco.png">
+      <h3>Réseaux Cisco</h3>
+    </div>
+    <span class="level advanced">Avancé</span>
+    <p>VLAN, routage, ASA, NAT, DMZ et architectures réseau complètes.</p>
+    <a href="lien.html" class="link">Voir SAE</a>
+  </div>
+
+  <!-- GNS3 -->
+  <div class="skill-card highlight">
+    <div class="skill-header">
+      <img src="gns3.png">
+      <h3>GNS3 / Packet Tracer</h3>
+    </div>
+    <span class="level advanced">Avancé</span>
+    <p>Simulation de réseaux complexes et tests d’infrastructures.</p>
+    <a href="lien.html" class="link">Voir SAE</a>
+  </div>
+
+  <!-- ARDUINO -->
+  <div class="skill-card">
+    <div class="skill-header">
+      <img src="arduino.png">
+      <h3>Arduino & LoRa</h3>
+    </div>
+    <span class="level mid">Intermédiaire</span>
+    <p>Programmation de capteurs et communication IoT longue portée.</p>
+    <a href="lien.html" class="link">Voir SAE</a>
+  </div>
+
+  <!-- SIMULINK -->
+  <div class="skill-card">
+    <div class="skill-header">
+      <img src="matlab.png">
+      <h3>Simulink</h3>
+    </div>
+    <span class="level mid">Intermédiaire</span>
+    <p>Simulation de systèmes et traitement du signal.</p>
+    <a href="lien.html" class="link">Voir SAE</a>
+  </div>
+
+  <!-- GSTREAMER -->
+  <div class="skill-card">
+    <div class="skill-header">
+      <img src="gstreamer.png">
+      <h3>GStreamer</h3>
+    </div>
+    <span class="level mid">Intermédiaire</span>
+    <p>Traitement et streaming de flux audio/vidéo.</p>
+    <a href="lien.html" class="link">Voir SAE</a>
+  </div>
+
+  <!-- FIBRE -->
+  <div class="skill-card fibre">
+    <div class="skill-header">
+      <img src="fibre.jpg">
+      <h3>Fibre optique</h3>
+    </div>
+    <span class="level mid">En cours</span>
+    <p>FTTH, architecture opérateur, mesures optiques (stage).</p>
+    <a href="lien.html" class="link">Voir SAE</a>
+  </div>
+
 </div>
 </div>
 </section>
-<h2 class="section-title">🤝 Compétences humaines</h2>
+  
 <section id="competences">
 <div class="wrap">
 <div class="soft-grid">
+  <h2 class="section-title">🤝 Compétences humaines</h2>
   <div class="soft">🤝 Travail d'équipe</div>
   <div class="soft">📋 Organisation</div>
   <div class="soft">🚀 Prise d’initiatives</div>
