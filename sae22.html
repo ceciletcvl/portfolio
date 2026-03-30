@@ -47,12 +47,20 @@ h2{margin-top:0;font-size:1.3rem}
 .muted{color:var(--muted)}
 ul{padding-left:1.2rem}
 a{color:var(--accent); font-weight:600;}
-.hibiscus-layer{
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1; /* pour être derrière le contenu */
-  overflow: hidden;
+.tagrow{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:10px;
+}
+
+.tag{
+  padding:8px 14px;
+  border-radius:999px;
+  background:rgba(79,158,255,.1);
+  border:1px solid rgba(79,158,255,.2);
+  font-size:.85rem;
+  font-weight:600;
 }
 </style>
 </head>
@@ -60,10 +68,9 @@ a{color:var(--accent); font-weight:600;}
 <body>
 
 <div class="wrap">
-  <a class="back" href="index.html">← Retour au portfolio</a>
+  <a class="back" href="index.html#projets">← Retour au portfolio</a>
 
   <h1>SAÉ 22 — Mesurer et caractériser un signal ou un système</h1>
-  <div class="hibiscus-layer"></div>
   <div class="card">
     <h2>Présentation du projet</h2>
     <p class="muted">
@@ -102,47 +109,26 @@ a{color:var(--accent); font-weight:600;}
 
   <div class="card">
     <h2>Compétences développées</h2>
-    <p class="muted">
-      Analyse de signaux, caractérisation de systèmes, traitement numérique sous Python,
-      utilisation de Jupyter Notebook, méthodologie scientifique et présentation technique des résultats.
-    </p>
+  <div class="tagrow">
+    <span class="tag">📊 Analyse de signaux</span>
+    <span class="tag">⚙️ Caractérisation de systèmes</span>
+    <span class="tag">🐍 Python / traitement numérique</span>
+    <span class="tag">📓 Jupyter Notebook</span>
+    <span class="tag">🔬 Méthodologie scientifique</span>
+    <span class="tag">🗣 Présentation technique des résultats</span>
+  </div>
+</div>
   </div>
 
   <div class="card">
     <h2>Énoncé</h2>
     <p>📄 <a href="SAE22_sujet_2025-phase_I-v1.pdf" target="_blank">SAE22_sujet_2025-phase_I-v1</a></p>
   </div>
-
+<div class="card">
+    <h2>Énoncé</h2>
+    <p>📄 <a href="SAE 22 _ Projet LoRa Travail de la séance 4 (non encadrée).pdf" target="_blank">Un Travail en groupe</a></p>
+  </div>
 </div>
-<script>
-/* ===== HIBISCUS ===== */
-const layer = document.querySelector('.hibiscus-layer');
-
-function spawn() {
-  const flower = document.createElement("div");
-  flower.textContent = "🌺"; // emoji hibiscus
-  flower.style.position = "absolute";
-  flower.style.left = Math.random() * 100 + "vw";
-  flower.style.top = "-40px";
-  flower.style.fontSize = (Math.random() * 20 + 20) + "px";
-  flower.style.animation = "fall linear forwards";
-  flower.style.animationDuration = (Math.random() * 5 + 6) + "s";
-  layer.appendChild(flower);
-  setTimeout(() => flower.remove(), 10000);
-}
-
-setInterval(spawn, 300);
-
-/* animation keyframes ajoutée dynamiquement */
-const style = document.createElement("style");
-style.innerHTML = `
-@keyframes fall {
-  0% { transform: translateY(-40px) rotate(0) }
-  100% { transform: translateY(110vh) rotate(360deg) }
-}
-`;
-document.head.appendChild(style);
-</script>
 </body>
 </html>
 
