@@ -53,12 +53,20 @@ h2{margin-top:0;font-size:1.3rem}
 .muted{color:var(--muted)}
 ul{padding-left:1.2rem}
 a{color:var(--accent); font-weight:600;}
-.hibiscus-layer{
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1; /* pour être derrière le contenu */
-  overflow: hidden;
+  .tagrow{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:10px;
+}
+
+.tag{
+  padding:8px 14px;
+  border-radius:999px;
+  background:rgba(79,158,255,.1);
+  border:1px solid rgba(79,158,255,.2);
+  font-size:.85rem;
+  font-weight:600;
 }
 </style>
 </head>
@@ -66,10 +74,9 @@ a{color:var(--accent); font-weight:600;}
 <body>
 
 <div class="wrap">
-  <a class="back" href="index.html">← Retour au portfolio</a>
+  <a class="back" href="index.html#projets">← Retour au portfolio</a>
 
   <h1>SAÉ 21 — Construire un réseau pour petite structure</h1>
-  <div class="hibiscus-layer"></div>
   <div class="card">
     <h2>Objectifs de la SAÉ</h2>
     <p class="muted">
@@ -84,15 +91,31 @@ a{color:var(--accent); font-weight:600;}
       <li>Mettre en place des règles de sécurité réseau adaptées.</li>
       <li>Tester, valider et documenter l’ensemble (schémas, procédures, résultats).</li>
     </ul>
+    <!-- COMPÉTENCES -->
+<h3 style="margin-top:20px;">Compétences développées</h3>
+<div class="tagrow">
+  <span class="tag">🖧 Conception d’architecture réseau</span>
+  <span class="tag">🔀 VLAN & segmentation réseau</span>
+  <span class="tag">🌐 Routage inter-VLAN</span>
+  <span class="tag">⚙️ Configuration équipements Cisco</span>
+  <span class="tag">📡 Mise en place DHCP / DNS</span>
+  <span class="tag">🌍 NAT / PAT</span>
+  <span class="tag">🔐 Sécurisation réseau (ACL, règles)</span>
+  <span class="tag">🧪 Tests et validation réseau</span>
+  <span class="tag">📊 Analyse de fonctionnement réseau</span>
+  <span class="tag">📝 Documentation technique</span>
+</div>
   </div>
 
   <div class="card">
     <h2>Compétences mobilisées</h2>
-    <p class="muted">
-      Conception d’architecture réseau, configuration d’équipements Cisco ou équivalents,
-      déploiement de services réseau, mise en œuvre de mécanismes de sécurité,
-      et production d’une documentation technique professionnelle.
-    </p>
+    <div class="tagrow">
+    <span class="tag">Architecture réseau</span>
+    <span class="tag">Configuration Cisco</span>
+    <span class="tag">Services réseau</span>
+    <span class="tag">Sécurité</span>
+    <span class="tag">Documentation</span>
+  </div>
   </div>
 
   <div class="card">
@@ -110,37 +133,14 @@ a{color:var(--accent); font-weight:600;}
       📄 <a href="SAE21_2025.pdf" target="_blank">SAE21_2025</a>
     </p>
   </div>
-
+<div class="card">
+    <h2>Topologie</h2>
+    <p>
+      📄 <a href="topo.png" target="_blank">Schéma de la topologie</a>
+      📄 <a href="packetsae21.pkt" target="_blank">Rendu projet Packet Tracer</a>
+    </p>
+  </div>
 </div>
-<script>
-/* ===== HIBISCUS ===== */
-const layer = document.querySelector('.hibiscus-layer');
-
-function spawn() {
-  const flower = document.createElement("div");
-  flower.textContent = "🌺"; // emoji hibiscus
-  flower.style.position = "absolute";
-  flower.style.left = Math.random() * 100 + "vw";
-  flower.style.top = "-40px";
-  flower.style.fontSize = (Math.random() * 20 + 20) + "px";
-  flower.style.animation = "fall linear forwards";
-  flower.style.animationDuration = (Math.random() * 5 + 6) + "s";
-  layer.appendChild(flower);
-  setTimeout(() => flower.remove(), 10000);
-}
-
-setInterval(spawn, 300);
-
-/* animation keyframes ajoutée dynamiquement */
-const style = document.createElement("style");
-style.innerHTML = `
-@keyframes fall {
-  0% { transform: translateY(-40px) rotate(0) }
-  100% { transform: translateY(110vh) rotate(360deg) }
-}
-`;
-document.head.appendChild(style);
-</script>
 </body>
 </html>
 
