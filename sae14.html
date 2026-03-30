@@ -76,6 +76,18 @@ a{color:var(--accent); font-weight:600;}
       <li>Étudier l’e-réputation : mieux connaître les risques et les moyens d’action pour défendre votre image en ligne.</li>
       <li>Préparer une intervention visant à sensibiliser des collégiens ou des lycéens sur le thème de l’e-réputation.</li>
     </ul>
+    <h3 style="margin-top:20px;">Compétences développées</h3>
+<div class="tagrow">
+  <span class="tag">🌐 Gestion de l’e-réputation</span>
+  <span class="tag">🔐 Protection des données personnelles</span>
+  <span class="tag">🧠 Analyse des risques numériques</span>
+  <span class="tag">📱 Identité numérique</span>
+  <span class="tag">🎤 Prise de parole en public</span>
+  <span class="tag">📚 Vulgarisation de concepts techniques</span>
+  <span class="tag">👥 Sensibilisation d’un public jeune</span>
+  <span class="tag">📝 Recherche et synthèse d’informations</span>
+  <span class="tag">🎯 Communication pédagogique</span>
+</div>
   </div>
 
   <div class="card">
@@ -114,37 +126,15 @@ a{color:var(--accent); font-weight:600;}
       </a>
     </p>
   </div>
-
+  
+<div class="card">
+    <h2>Travail Effectué</h2>
+    <p>
+      📄 <a href="reputation.pdf" target="_blank">Présentation du travail</a>
+    </p>
+  </div>
 </div>
-<script>
-/* ===== HIBISCUS ===== */
-const layer = document.querySelector('.hibiscus-layer');
 
-function spawn() {
-  const flower = document.createElement("div");
-  flower.textContent = "🌺"; // emoji hibiscus
-  flower.style.position = "absolute";
-  flower.style.left = Math.random() * 100 + "vw";
-  flower.style.top = "-40px";
-  flower.style.fontSize = (Math.random() * 20 + 20) + "px";
-  flower.style.animation = "fall linear forwards";
-  flower.style.animationDuration = (Math.random() * 5 + 6) + "s";
-  layer.appendChild(flower);
-  setTimeout(() => flower.remove(), 10000);
-}
-
-setInterval(spawn, 300);
-
-/* animation keyframes ajoutée dynamiquement */
-const style = document.createElement("style");
-style.innerHTML = `
-@keyframes fall {
-  0% { transform: translateY(-40px) rotate(0) }
-  100% { transform: translateY(110vh) rotate(360deg) }
-}
-`;
-document.head.appendChild(style);
-</script>
 </body>
 </html>
 
