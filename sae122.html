@@ -67,25 +67,26 @@ h2{
 ol{padding-left:1.4rem}
 
 a{color:var(--accent); font-weight:600;}
-
-.hibiscus-layer{
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1; /* pour être derrière le contenu */
-  overflow: hidden;
+.tagrow{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
 }
-  
+.tag{
+  padding:8px 14px;
+  border-radius:999px;
+  background:rgba(59,130,246,.08);
+  font-size:.85rem;
+}  
 </style>
 </head>
 
 <body>
 <div class="wrap">
-  <a class="back" href="https://ceciletcvl.github.io/portfolio/index.html#projets">← Retour au portfolio</a>
+  <a class="back" href="index.html#projets">← Retour au portfolio</a>
 
   <h1>SAÉ 12 : S’initier aux réseaux informatiques</h1>
 
-<div class="hibiscus-layer"></div>
   <div class="card">
     <h2>Objectifs de la SAÉ</h2>
     <p class="muted">
@@ -100,6 +101,18 @@ a{color:var(--accent); font-weight:600;}
       <li>Analyser les débits possibles en fonction de votre environnement réseau</li>
       <li>Étudier également l’énergie consommée</li>
     </ol>
+    <h3 style="margin-top:20px;">Compétences développées</h3>
+
+  <div class="tagrow">
+    <span class="tag">🌐 Analyse réseau domestique</span>
+    <span class="tag">🖧 Compréhension des équipements réseau</span>
+    <span class="tag">📡 Fonctionnement des protocoles réseau</span>
+    <span class="tag">⚡ Mesure de débit (speedtest, etc.)</span>
+    <span class="tag">🔍 Diagnostic et tests réseau</span>
+    <span class="tag">💡 Analyse de la consommation énergétique</span>
+    <span class="tag">🧠 Compréhension des interactions client/serveur</span>
+    <span class="tag">📊 Interprétation de résultats techniques</span>
+  </div>
   </div>
 
   <div class="card">
@@ -108,24 +121,14 @@ a{color:var(--accent); font-weight:600;}
       📄 <a href="Enonce-SAE12-2024.pdf" target="_blank">Enonce-SAE12-2024</a>
     </p>
   </div>
-
-</div>
+<div class="card">
+    <h2>Travail effectué</h2>
+    <p>
+      📄 <a href="sae12trincavelli.pdf" target="_blank">Travail Partie 1</a>
+       📄 <a href="part2-3.pdf" target="_blank">Travail Partie 2 et 3</a>
+    </p>
+  </div>
 <script>
-/* ===== HIBISCUS ===== */
-const layer = document.querySelector('.hibiscus-layer');
-
-function spawn() {
-  const flower = document.createElement("div");
-  flower.textContent = "🌺"; // emoji hibiscus
-  flower.style.position = "absolute";
-  flower.style.left = Math.random() * 100 + "vw";
-  flower.style.top = "-40px";
-  flower.style.fontSize = (Math.random() * 20 + 20) + "px";
-  flower.style.animation = "fall linear forwards";
-  flower.style.animationDuration = (Math.random() * 5 + 6) + "s";
-  layer.appendChild(flower);
-  setTimeout(() => flower.remove(), 10000);
-}
 
 setInterval(spawn, 300);
 
