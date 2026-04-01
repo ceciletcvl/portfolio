@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SAÉ 41 — Cybersécurité</title>
+
+<style>
+:root{
+  --bg:#f0f4ff; --bg-soft:#e0e8ff; --card:#ffffff;
+  --text:#111827; --muted:#555a75; --accent:#4f9eff;
+  --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.1);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+.wrap{
+  max-width:900px;
+  margin:auto;
+  padding:30px 20px 80px;
+}
+.back{
+  display:inline-block;
+  margin:30px 0 10px;
+  text-decoration:none;
+  padding:.55rem .9rem;
+  border-radius:999px;
+  background:rgba(79,158,255,.08);
+  border:1px solid rgba(79,158,255,.25);
+  color:var(--accent);
+  font-weight:600;
+}
+h1{font-size:2.2rem;margin-bottom:20px}
+h2{margin-top:0;font-size:1.3rem}
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:20px;
+  margin:20px 0;
+  box-shadow:var(--shadow);
+}
+.muted{color:var(--muted)}
+ul{padding-left:1.2rem}
+a{color:var(--accent); font-weight:600;}
+.tagrow{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:10px;
+}
+
+.tag{
+  padding:8px 14px;
+  border-radius:999px;
+  background:rgba(79,158,255,.1);
+  border:1px solid rgba(79,158,255,.2);
+  font-size:.85rem;
+  font-weight:600;
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+  <a class="back" href="index.html#projets">← Retour au portfolio</a>
+
+  <h1>Concevoir et réaliser une plateforme d'audit de sécurité et d'en consulter le résultat.</h1>
+  <h2>Projet (Situation d'Apprentissage et d'évaluation) SAÉ 4.01</h2>
+  <div class="card">
+    <h2>Présentation du projet</h2>
+    <p class="muted">Ce projet consiste à réaliser un audit de sécurité à 360° d’un site web en analysant le nom de domaine, chaque page de l’application ainsi que son hébergement. Il s’agit d’identifier et d’exploiter des outils open-source pertinents (scanners de vulnérabilités, analyseurs web, etc.) afin de détecter les failles de sécurité, puis d’organiser leur utilisation de manière cohérente. Les résultats sont ensuite synthétisés dans un rapport clair et visuel, inspiré d’outils comme WooRank, afin de rendre l’audit compréhensible et exploitable.</p>
+  </div>
+
+  <div class="card">
+    <h2>Objectifs</h2>
+    <ul class="muted">
+      <li><strong>Audit de sécurité à 360°</strong><br>
+     • Audit relatif au nom de domaine<br>
+• Audit relatif à chaque page du site Web cible<br>
+• Audit relatif à l’hébergement sous-jacent</li>
+      <li><strong>Identifier les outils open-source utiles</strong><br>
+        Il existe pléthore de solutions & de scanners permettant
+d’identifier de nombreuses failles.<br>
+À vous de les identifier, de sélectionner les plus pertinents et
+d’organiser leur utilisation.
+I</li>
+      <li><strong>Concevoir un reporting simple de compréhension</strong><br>
+      À l’image d’un rapport WooRank pour le SEO, il est à votre
+charge de concevoir un reporting aussi simple de
+compréhension que possible pour visualiser le résultat de
+l’audit de sécurité.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Compétences développées</h2>
+  <div class="tagrow">
+    <span class="tag">💻 Développement Python</span>
+        <span class="tag">🌐 Création et sécurisation de site web</span>
+    <span class="tag">📝 Documentation technique</span>
+        <span class="tag">🔄 Gestion de projet Git</span>
+    <span class="tag">🖧Cybersécurité</span>
+  </div>
+</div>
+
+<div class="card">
+    <h2>Documents</h2>
+    <p>📄 <a href="SAE-41.xlsx" target="_blank">Organisation du groupe</a></p>
+    <p>📄 <a href="algo2.png" target="_blank">Algorithme derrière le site</a></p>
+    <p>📄 <a href="analyseur.html" target="_blank">Le Site</a></p>
+
+</div>
+</div>
+</body>
+</html>
