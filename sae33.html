@@ -1,1 +1,122 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SAÉ 33 — Concevoir un réseau informatique sécurisé multi-sites</title>
 
+<style>
+:root{
+  --bg:#f0f4ff; --bg-soft:#e0e8ff; --card:#ffffff;
+  --text:#111827; --muted:#555a75; --accent:#4f9eff;
+  --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.1);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+.wrap{
+  max-width:900px;
+  margin:auto;
+  padding:30px 20px 80px;
+}
+.back{
+  display:inline-block;
+  margin:30px 0 10px;
+  text-decoration:none;
+  padding:.55rem .9rem;
+  border-radius:999px;
+  background:rgba(79,158,255,.08);
+  border:1px solid rgba(79,158,255,.25);
+  color:var(--accent);
+  font-weight:600;
+}
+h1{font-size:2.2rem;margin-bottom:20px}
+h2{margin-top:0;font-size:1.3rem}
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:20px;
+  margin:20px 0;
+  box-shadow:var(--shadow);
+}
+.muted{color:var(--muted)}
+ul{padding-left:1.2rem}
+a{color:var(--accent); font-weight:600;}
+.tagrow{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:10px;
+}
+
+.tag{
+  padding:8px 14px;
+  border-radius:999px;
+  background:rgba(79,158,255,.1);
+  border:1px solid rgba(79,158,255,.2);
+  font-size:.85rem;
+  font-weight:600;
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+  <a class="back" href="index.html#projets">← Retour au portfolio</a>
+
+  <h1>Concevoir un réseau informatique sécurisé multi-sites</h1>
+  <h2>Projet (Situation d'Apprentissage et d'évaluation) SAÉ 3.03</h2>
+  <div class="card">
+    <h2>Présentation du projet</h2>
+    <p class="muted">Ce projet consiste à concevoir et sécuriser un système d’information multisite en interconnectant plusieurs sites d’entreprise via une architecture réseau robuste, performante et protégée. Il repose sur l’utilisation de technologies comme les VLAN pour segmenter le réseau, HSRP et STP/RSTP pour assurer la redondance et éviter les boucles, ainsi que le NAT et un pare-feu ASA pour sécuriser les accès. Des services comme le DHCP, le VPN, le SSH/AAA et la ToIP (IPBX) sont intégrés afin de garantir à la fois la sécurité, la continuité de service, la mobilité des utilisateurs et la transparence des configurations. </p>
+  </div>
+
+  <div class="card">
+    <h2>Objectifs</h2>
+    <ul class="muted">
+      <li>Administrer et sécuriser un système d’information multisite</li>
+      <li>Connecter les sites de l’entreprise et les usagers de manière sécurisée      </li>
+      <li>Comprendre un cahier des charges, faire des choix techniques      </li>
+    </ul>
+  </div>
+<div class="card">
+    <h2>Contexte</h2>
+    <ul class="muted">
+      <li>Sites interconnectés vers le monde extérieur de manière sécurisée</li>
+      <li>Architecture robuste (résistante aux pannes et résistante aux attaques)</li>
+      <li>Equilibrage de charge au sein de la topologie (HSRP/STP/VLan)</li>
+      <li>confort des utilisateurs au niveau de la mobilité et des services proposés</li>
+      <li>transparence des configurations pour les usagers :<br>
+DHCP– obtention des paramètres IP de manière automatique<br>
+VLan – accès aux ressources qui lui sont destinées <br>
+RSTP, PortFast – permanence de la connexion locale et reconfiguration rapide<br>
+HSRP – permanence de la connexion au monde extérieur<br>
+STP+HSRP+VLan – équilibrage de charge par une orientation des flux internes<br>
+ASA+NAT – masquer les adresses IP locales depuis l’extérieur (NAT)<br>
+SSH/AAA+VPN – accéder en sécurité aux équipements actifs en interne et depuis l’extérieur<br>
+VPN SSL + DMZ – prendre en compte les besoins en mobilité au sein de l’entreprise<br>
+IPBX+DHCP ToIP – prendre en compte les besoins en ToIP intra et inter départements</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h2>Compétences développées</h2>
+  <div class="tagrow">
+    <span class="tag">GNS3 - Packet Tracer</span>
+    <span class="tag">Réseaux Locaux</span>
+    <span class="tag">Cybersécurité</span>
+  </div>
+</div>
+
+<div class="card">
+    <h2>Documents</h2>
+    <p>📄 <a href="plan_adressage.png" target="_blank">Plan d'adressage IP</a></p>
+  </div>
+</div>
+</body>
+</html>
