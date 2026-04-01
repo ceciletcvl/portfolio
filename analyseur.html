@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyseur de Site Web</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            display: flex; 
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            background-color: #f4f4f9; 
+            margin: 0; 
+        }
+        .container { 
+            background: white; 
+            padding: 2.5rem; 
+            border-radius: 12px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+            text-align: center; 
+            width: 450px; 
+        }
+        input[type="url"] { 
+            width: 100%; 
+            padding: 12px; 
+            margin: 20px 0; 
+            border: 2px solid #ddd; 
+            border-radius: 6px; 
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .button-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        button { 
+            padding: 12px 15px; 
+            border: none; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            font-size: 14px; 
+            font-weight: bold;
+            transition: background 0.3s;
+            flex: 1;
+        }
+        .btn-simple { background-color: #4CAF50; color: white; }
+        .btn-simple:hover { background-color: #45a049; }
+        
+        .btn-advanced { background-color: #2196F3; color: white; }
+        .btn-advanced:hover { background-color: #1976D2; }
+
+        .footer-link {
+            margin-top: 30px;
+            font-size: 0.9rem;
+        }
+        .footer-link a {
+            color: #555;
+            text-decoration: none;
+            font-family: monospace;
+        }
+        .footer-link a:hover { text-decoration: underline; }
+
+        #resultat { margin-top: 25px; color: #555; min-height: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Analyse de sécurité d'un Site</h1>
+    <p>Entrez l'adresse URL du site à analyser :</p>
+    
+    <input type="url" id="siteUrl" placeholder="https://exemple.com" required>
+    
+    <div class="button-group">
+        <button class="btn-simple" onclick="analyser('Simple')">Lancer l'analyse</button>
+        <button class="btn-advanced" onclick="analyser('Avancée')">Analyse avancée</button>
+    </div>
+
+    <div id="resultat"></div>
+</div>
+
+<div class="footer-link">
+    <a href="https://nmap.org/" target="_blank">@Nmap</a>
+</div>
+
+<script>
+    function analyser(type) {
+        const url = document.getElementById('siteUrl').value;
+        const resultat = document.getElementById('resultat');
+        
+        if (!url) {
+            resultat.innerText = "Veuillez entrer une URL valide.";
+            resultat.style.color = "red";
+            return;
+        }
+        
+        resultat.style.color = "#333";
+        resultat.innerText = "Mode : " + type + " | Analyse en cours pour : " + url;
+    }
+</script>
+
+</body>
+</html>
