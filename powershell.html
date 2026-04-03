@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projet Powershell d'automatisation</title>
+
+<style>
+:root{
+  --bg:#f0f4ff; --bg-soft:#e0e8ff; --card:#ffffff;
+  --text:#111827; --muted:#555a75; --accent:#4f9eff;
+  --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+
+.wrap{
+  max-width:900px;
+  margin:auto;
+  padding:30px 20px 80px;
+}
+
+.back{
+  display:inline-block;
+  margin:30px 0 10px;
+  text-decoration:none;
+  padding:.55rem .9rem;
+  border-radius:999px;
+  background:rgba(79,158,255,.08);
+  border:1px solid rgba(79,158,255,.25);
+  color:var(--accent);
+  font-weight:600;
+}
+
+h1{font-size:2.2rem;margin-bottom:20px}
+h2{margin-top:0;font-size:1.3rem}
+
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:20px;
+  margin:20px 0;
+  box-shadow:var(--shadow);
+}
+
+.muted{color:var(--muted)}
+ul{padding-left:1.2rem}
+a{color:var(--accent); font-weight:600;}
+  .tagrow{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:10px;
+}
+
+.tag{
+  padding:8px 14px;
+  border-radius:999px;
+  background:rgba(79,158,255,.1);
+  border:1px solid rgba(79,158,255,.2);
+  font-size:.85rem;
+  font-weight:600;
+}
+    .nav-arrow{
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 28px;
+  text-decoration: none;
+  background: rgba(255,255,255,0.8);
+  color: #333;
+  padding: 12px 16px;
+  border-radius: 50%;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: 0.3s;
+  z-index: 1000;
+  backdrop-filter: blur(6px);
+}
+
+.nav-arrow:hover{
+  background: #ff6fb5;
+  color: white;
+}
+
+.nav-arrow.left{
+  left: 20px;
+}
+
+.nav-arrow.right{
+  right: 20px;
+}
+</style>
+</head>
+
+<body>
+<a href="sae22.html" class="nav-arrow left">❮</a>
+<a href="sae24.html" class="nav-arrow right">❯</a>
+<div class="wrap">
+  <a class="back" href="index.html#projets">← Retour au portfolio</a>
+
+  <h1>Création d'un script Powershell d'automatisation de gestion de comptes Active Directory</h1>
+  <h2>Projet dans la ressource R4.05 - Automatisation des tâches d'administration</h2>
+  <div class="card">
+    <h2>Présentation du projet</h2>
+    <p class="muted">
+      Ce projet consiste à mettre en place un environnement réseau complet sous Windows Server 2025 et à automatiser la gestion du cycle de vie des utilisateurs via PowerShell. L'idée est de passer d'une administration manuelle (source d'erreurs) à une gestion industrialisée basée sur des fichiers de données (CSV).
+    </p>
+    <h2>Contexte et Enjeux</h2>
+    <p>
+      Dans un environnement professionnel, l’administrateur ne peut plus se permettre de créer chaque compte à la main.
+    </p>
+    <ul class="muted">
+      <li><strong>Objectif : </strong>Réduire les erreurs humaines, gagner du temps et standardiser les procédures.</li>
+      <li><strong>Mission :</strong> Développer un outil robuste capable de traiter des entrées en masse pour créer, supprimer et archiver des comptes et leurs données associées.</li>
+    </ul>
+    <!-- COMPÉTENCES -->
+<h3 style="margin-top:20px;">Compétences développées</h3>
+<div class="tagrow">
+  <span class="tag">🖥️ Infrastructure : Déploiement de serveurs Windows 2025 et clients Win11.</span>
+  <span class="tag">⚙️ Services Réseau : Configuration complète AD, DNS et DHCP en ligne de commande.</span>
+  <span class="tag">📜 Scripting PowerShell : Création d'un outil d'administration basé sur des fichiers CSV.</span>
+</div>
+  </div>
+
+  <div class="card">
+    <h2>Enoncé officiel</h2>
+    <p>
+      📄 <a href="Projet.pdf" target="_blank">Projet</a>
+    </p>
+  </div>
+<div class="card">
+    <h2>Rapport</h2>
+    <p>
+      📄 <a href="Rapport de Projet _ Administration Active Directory via PowerShell.pdf" target="_blank">Mon travail</a>
+    </p>
+  </div>
+</div>
+</body>
+</html>
